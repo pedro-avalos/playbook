@@ -1,0 +1,6 @@
+---
+
+- name: Refresh repo metadata
+  ansible.builtin.dnf:
+    update_cache: yes
+    state: latest
