@@ -1,0 +1,7 @@
+---
+
+- import_tasks: git.yaml
+- import_tasks: ssh.yaml
+- import_tasks: nvim.yaml
+- import_tasks: vim.yaml
+- import_tasks: doom.yaml

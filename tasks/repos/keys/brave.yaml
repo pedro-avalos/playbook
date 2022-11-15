@@ -1,0 +1,6 @@
+---
+
+- name: Import brave gpg key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc

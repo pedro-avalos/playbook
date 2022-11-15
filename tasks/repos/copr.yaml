@@ -1,0 +1,7 @@
+---
+
+- name: Enable globalprotect-openconnect owned by yuezk
+  community.general.copr:
+    host: copr.fedorainfracloud.org
+    state: enabled
+    name: yuezk/globalprotect-openconnect

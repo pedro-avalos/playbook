@@ -1,0 +1,16 @@
+---
+
+- name: Set up Fedora post-install
+  hosts: all
+  vars_files:
+    - vars/main.yaml
+    - vars/git.yaml
+
+  tasks:
+    # Repository tasks
+    - import_tasks: tasks/pkgs/flatpak.yaml # Required by flathub
+    - import_tasks: tasks/repos/main.yaml
+    # Install packages
+    - import_tasks: tasks/pkgs/main.yaml
+    # Basic configuration setup
+    - import_tasks: tasks/config/main.yaml

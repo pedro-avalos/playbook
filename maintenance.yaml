@@ -1,0 +1,15 @@
+---
+
+- name: Maintain Fedora install
+  hosts: all
+  vars_files:
+    - vars/main.yaml
+    - vars/git.yaml
+
+  tasks:
+    # Update all packages
+    - import_tasks: tasks/pkgs/helpers/updates.yaml
+    # Clean up dependencies
+    - import_tasks: tasks/pkgs/helpers/cleanup.yaml
+    # Maintain basic configuration setup
+    - import_tasks: tasks/config/main.yaml
