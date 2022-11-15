@@ -3,37 +3,37 @@
 - name: Add rpmfusion-free repo
   ansible.builtin.yum_repository:
     name: rpmfusion-free
-    description: "RPM Fusion for Fedora {{ ansible_release_version }} - Free"
-    metalink: "https://mirrors.rpmfusion.org/metalink?repo=free-fedora-{{ ansible_release_version }}&arch={{ ansible_architecture }}"
+    description: RPM Fusion for Fedora $releasever - Free
+    metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
     enabled: true
     metadata_expire: 1209600 # 14 days in seconds
     gpgcheck: true
-    gpgkey: "file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_release_version }}"
+    gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 
 - name: Add rpmfusion-free-updates repo
   ansible.builtin.yum_repository:
     name: rpmfusion-free-updates
-    description: "RPM Fusion for Fedora {{ ansible_release_version }} - Free - Updates"
-    metalink: "https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-{{ ansible_release_version }}&arch={{ ansible_architecture }}"
+    description: RPM Fusion for Fedora {{ ansible_release_version }} - Free - Updates
+    metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
     enabled: true
     gpgcheck: true
-    gpgkey: "file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_release_version }}"
+    gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 
 - name: Add rpmfusion-nonfree repo
   ansible.builtin.yum_repository:
     name: rpmfusion-nonfree
-    description: "RPM Fusion for Fedora {{ ansible_release_version }} - Nonfree"
-    metalink: "https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-{{ ansible_release_version }}&arch={{ ansible_architecture }}"
+    description: RPM Fusion for Fedora $releasever - Nonfree
+    metalink: https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
     enabled: true
     metadata_expire: 1209600 # 14 days in seconds
     gpgcheck: true
-    gpgkey: "file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-{{ ansible_release_version }}"
+    gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
 
 - name: Add rpmfusion-nonfree-updates repo
   ansible.builtin.yum_repository:
     name: rpmfusion-nonfree-updates
-    description: "RPM Fusion for Fedora {{ ansible_release_version }} - Nonfree - Updates"
-    metalink: "https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-{{ ansible_release_version }}&arch={{ ansible_architecture }}"
+    description: RPM Fusion for Fedora $releasever - Nonfree - Updates
+    metalink: https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
     enabled: true
     gpgcheck: true
-    gpgkey: "file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-{{ ansible_release_version }}"
+    gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
