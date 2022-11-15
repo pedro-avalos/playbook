@@ -1,0 +1,16 @@
+---
+
+- name: Ensure "~/.config/nvim" directory exists
+  ansible.builtin.file:
+    dest: "/home/{{ ansible_user_id }}/.config/nvim"
+    mode: '0744'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    state: directory
+
+- name: Copy nvim configuration files
+  ansible.builtin.copy:
+    src: files/config/nvim/
+    dest: "/home/{{ ansible_user_id }}/.config/nvim/"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"

@@ -1,0 +1,13 @@
+Host *
+	IdentityAgent ~/.1password/agent.sock
+
+Host ssh.wheaton.edu
+	User pedroavalosjimenez01
+	PubkeyAuthentication no
+	PreferredAuthentications password
+
+Host cslab*.wheaton.edu
+	User pedroavalosjimenez
+
+Host hpc*.wheaton.edu
+	ForwardX11 yes

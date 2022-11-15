@@ -1,0 +1,40 @@
+---
+
+- name: Install doom emacs prerequisites
+  ansible.builtin.dnf:
+    name:
+      - ripgrep
+      - fd-find
+    state: latest
+
+- name: Clone doom emacs repo
+  ansible.builtin.git:
+    depth: 1
+    repo: https://github.com/doomemacs/doomemacs
+    dest: "/home/{{ ansible_user_id }}/.emacs.d"
+    clone: yes
+    update: no
+
+- name: Change permissions of "~/.emacs.d" directory
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/.emacs.d"
+    mode: '0744'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    state: directory
+    recurse: yes
+
+- name: Ensure "~/.doom.d" directory exists
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/.doom.d"
+    mode: '0744'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    state: directory
+
+- name: Copy doom emacs configuration
+  ansible.builtin.copy:
+    src: files/doom.d/
+    dest: "/home/{{ ansible_user_id }}/.doom.d/"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
