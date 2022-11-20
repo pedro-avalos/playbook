@@ -7,4 +7,5 @@
 - import_tasks: code.yaml
 - import_tasks: brave-browser.yaml
 - import_tasks: emacs.yaml
+- import_tasks: steam.yaml
 - import_tasks: helpers/cleanup.yaml
