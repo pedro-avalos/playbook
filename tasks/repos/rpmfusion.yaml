@@ -13,7 +13,7 @@
 - name: Add rpmfusion-free-updates repo
   ansible.builtin.yum_repository:
     name: rpmfusion-free-updates
-    description: RPM Fusion for Fedora {{ ansible_release_version }} - Free - Updates
+    description: RPM Fusion for Fedora $releasever - Free - Updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
     enabled: true
     gpgcheck: true
