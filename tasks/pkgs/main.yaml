@@ -6,6 +6,9 @@
 - import_tasks: 1password.yaml
 - import_tasks: code.yaml
 - import_tasks: brave-browser.yaml
+- import_tasks: nodejs.yaml
+- import_tasks: vim.yaml
+- import_tasks: nvim.yaml
 - import_tasks: emacs.yaml
 - import_tasks: steam.yaml
 - import_tasks: helpers/cleanup.yaml

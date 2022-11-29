@@ -1,6 +1,6 @@
 ---
 
-- name: Install "@core" group package
+- name: Install "@core" package group
   ansible.builtin.dnf:
     name: "@core"
     state: latest
