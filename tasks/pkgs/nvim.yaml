@@ -1,0 +1,11 @@
+---
+
+- name: Install neovim package
+  ansible.builtin.dnf:
+    name: neovim
+    state: latest
+
+- name: Install python-neovim
+  ansible.builtin.dnf:
+    name: python-neovim
+    state: latest
