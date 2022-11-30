@@ -11,7 +11,7 @@
 - import_tasks: brave-browser.yaml
 # microsoft
 - import_tasks: keys/microsoft.yaml
-- import_tasks: code.yaml
+- import_tasks: vscode.yaml
 - import_tasks: teams.yaml
 # copr
 - import_tasks: copr.yaml
