@@ -12,7 +12,7 @@
 # microsoft
 - import_tasks: keys/microsoft.yaml
 - import_tasks: vscode.yaml
-- import_tasks: teams.yaml
+- import_tasks: ms-teams.yaml
 # copr
 - import_tasks: copr.yaml
 # flathub
