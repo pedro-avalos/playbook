@@ -1,8 +1,8 @@
 ---
 
-- name: Add teams repo
+- name: Add ms-teams repo
   ansible.builtin.yum_repository:
-    name: teams
+    name: ms-teams
     description: Microsoft Teams
     baseurl: https://packages.microsoft.com/yumrepos/ms-teams
     enabled: true
