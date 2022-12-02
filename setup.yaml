@@ -4,6 +4,7 @@
   hosts: all
   vars_files:
     - vars/main.yaml
+    - vars/pkgs.yaml
     - vars/git.yaml
 
   tasks:

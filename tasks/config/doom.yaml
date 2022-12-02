@@ -1,10 +1,10 @@
 ---
 
 - name: Install doom emacs prerequisites
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name:
       - ripgrep
-      - fd-find
+      - {{ fd_find }}
     state: latest
 
 - name: Clone doom emacs repo
