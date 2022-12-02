@@ -10,3 +10,10 @@
     gpgcheck: true
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
+# Sometimes teams adds its own repo
+- name: Remove teams repo
+  ansible.builtin.yum_repository:
+    name: teams
+    state: absent
+  notify: yum-clean-metadata
+
