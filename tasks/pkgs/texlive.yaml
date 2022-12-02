@@ -1,7 +1,7 @@
 ---
 
 - name: Install texlive packages
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: texlive-scheme-full
     state: latest
 

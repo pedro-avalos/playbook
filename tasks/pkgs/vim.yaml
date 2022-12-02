@@ -1,6 +1,6 @@
 ---
 
 - name: Install vim package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: vim
     state: latest

@@ -1,6 +1,6 @@
 ---
 
 - name: Install flatpak package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: flatpak
     state: latest
