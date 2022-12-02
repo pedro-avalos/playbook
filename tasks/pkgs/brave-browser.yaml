@@ -1,7 +1,7 @@
 ---
 
 - name: Install brave-browser package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: brave-browser
     state: latest
 

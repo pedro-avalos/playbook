@@ -1,6 +1,6 @@
 ---
 
 - name: Install code package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: code
     state: latest

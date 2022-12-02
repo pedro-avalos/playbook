@@ -1,6 +1,6 @@
 ---
 
 - name: Install emacs package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: emacs
     state: latest

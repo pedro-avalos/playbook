@@ -1,12 +1,16 @@
 ---
 
 - name: Add ms-teams repo
-  ansible.builtin.yum_repository:
+  community.general.zypper_repository:
     name: ms-teams
     description: Microsoft Teams
-    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
-    enabled: true
-    skip_if_unavailable: true
-    gpgcheck: true
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    repo: https://packages.microsoft.com/yumrepos/ms-teams
+    auto_import_keys: true
+    state: present
+
+- name: Remove teams repo
+  community.general.zypper_repository:
+    name: teams
+    repo: https://packages.microsoft.com/yumrepos/ms-teams
+    state: absent
 

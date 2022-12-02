@@ -1,6 +1,7 @@
 ---
 
 - name: Remove packages installed as dependencies
-  ansible.builtin.dnf:
-    autoremove: yes
+  community.general.zypper:
+    name: '*'
+    clean_deps: true
 

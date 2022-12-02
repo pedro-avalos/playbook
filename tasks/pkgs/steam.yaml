@@ -1,6 +1,6 @@
 ---
 
 - name: Install steam package
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: steam
     state: latest
