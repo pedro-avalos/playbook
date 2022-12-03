@@ -5,12 +5,13 @@
     name: ms-teams
     description: Microsoft Teams
     baseurl: https://packages.microsoft.com/yumrepos/ms-teams
-    auto_import_keys: true
-    state: present
+    enabled: true
+    skip_if_unavailable: true
+    gpgcheck: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
 - name: Remove teams repo
   ansible.builtin.yum_repository:
     name: teams
-    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
     state: absent
-
+  notify: yum-clean-metadata
