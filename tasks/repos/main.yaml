@@ -13,7 +13,7 @@
 #
 # brave
 #
-- import_tasks: keys/brave-browser.yaml
+- import_tasks: keys/brave.yaml
 - import_tasks: brave-browser.yaml
 
 #
