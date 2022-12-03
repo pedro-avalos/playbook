@@ -1,7 +1,6 @@
 ---
 
 - name: Refresh repo metadata
-  community.general.zypper_repository:
-    name: '*'
-    runrefresh: true
-
+  ansible.builtin.dnf:
+    update_cache: yes
+    state: present

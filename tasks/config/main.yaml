@@ -5,3 +5,4 @@
 - import_tasks: nvim.yaml
 - import_tasks: vim.yaml
 - import_tasks: doom.yaml
+- import_tasks: gtk.yaml

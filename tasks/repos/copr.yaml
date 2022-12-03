@@ -1,7 +1,10 @@
 ---
 
-- name: Enable globalprotect-openconnect owned by yuezk
+- name: Enable copr repos
   community.general.copr:
-    host: copr.fedorainfracloud.org
+    host: "{{ item.host }}"
+    name: "{{ item.name }}"
     state: enabled
-    name: yuezk/globalprotect-openconnect
+  loop:
+    - host: copr.fedorainfracloud.org
+      name: yuezk/globalprotect-openconnect

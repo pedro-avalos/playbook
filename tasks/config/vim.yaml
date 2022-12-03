@@ -10,14 +10,12 @@
 
 - name: Copy vim configuration files
   ansible.builtin.copy:
-    src: files/config/nvim/config/
-    dest: "/home/{{ ansible_user_id }}/.vim/config/"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-
-- name: Copy .vimrc
-  ansible.builtin.copy:
-    src: files/config/nvim/init.vim
-    dest: "/home/{{ ansible_user_id }}/.vimrc"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+  loop:
+    - src: files/config/nvim/config/
+      dest: "/home/{{ ansible_user_id }}/.vim/config/"
+    - src: files/config/nvim/init.vim
+      dest: "/home/{{ ansible_user_id }}/.vimrc"
