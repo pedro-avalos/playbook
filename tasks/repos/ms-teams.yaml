@@ -4,13 +4,13 @@
   community.general.zypper_repository:
     name: ms-teams
     description: Microsoft Teams
-    repo: https://packages.microsoft.com/yumrepos/ms-teams
+    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
     auto_import_keys: true
     state: present
 
 - name: Remove teams repo
-  community.general.zypper_repository:
+  community.general.yum_repository:
     name: teams
-    repo: https://packages.microsoft.com/yumrepos/ms-teams
+    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
     state: absent
 

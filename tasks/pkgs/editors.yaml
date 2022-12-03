@@ -1,0 +1,10 @@
+---
+
+- name: Install basic editor packages
+  ansible.builtin.dnf:
+    name:
+      - nano
+      - vi
+      - vim
+      - neovim
+      - emacs

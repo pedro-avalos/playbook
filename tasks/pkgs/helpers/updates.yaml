@@ -1,6 +1,6 @@
 ---
 
 - name: Update all packages
-  ansible.builtin.package:
+  ansible.builtin.dnf:
     name: "*"
-    state: dist-upgrade
+    state: latest

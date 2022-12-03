@@ -1,7 +1,7 @@
 ---
 
-- name: Install nodejs package
-  ansible.builtin.package:
+- name: Install nodejs packages
+  ansible.builtin.dnf:
     name:
       - nodejs
       - npm

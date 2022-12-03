@@ -1,6 +1,0 @@
----
-
-- name: Install vim package
-  ansible.builtin.package:
-    name: vim
-    state: latest
