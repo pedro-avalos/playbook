@@ -1,7 +1,7 @@
 ---
 
 - name: Add brave-browser repo
-  ansible builtin.yum_repository:
+  ansible.builtin.yum_repository:
     name: brave-browser
     description: Brave Browser Release Channel
     baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
