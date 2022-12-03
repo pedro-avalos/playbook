@@ -4,4 +4,3 @@
   ansible.builtin.dnf:
     name: brave-browser
     state: latest
-

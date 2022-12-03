@@ -3,4 +3,3 @@
 - name: Remove packages installed as dependencies
   ansible.builtin.dnf:
     autoremove: true
-

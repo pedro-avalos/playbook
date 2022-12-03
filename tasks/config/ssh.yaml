@@ -15,4 +15,3 @@
     mode: '0400'
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-

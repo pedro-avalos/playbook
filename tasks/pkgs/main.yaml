@@ -5,9 +5,10 @@
 - import_tasks: group/devel.yaml
 # fedora repos
 - import_tasks: flatpak.yaml
-- import_tasks: nodejs.yaml
+- import_tasks: c.yaml
 - import_tasks: python.yaml
 - import_tasks: java.yaml
+- import_tasks: nodejs.yaml
 - import_tasks: texlive.yaml
 - import_tasks: editors.yaml
 - import_tasks: steam.yaml
