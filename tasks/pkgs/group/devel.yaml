@@ -1,6 +1,6 @@
 ---
 
 - name: Install "@Development tools" package group
-  ansible.builtin.package:
+  ansible.builtin.dnf:
     name: "@Development tools"
     state: latest

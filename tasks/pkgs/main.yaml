@@ -1,11 +1,17 @@
 ---
 
+# package groups
+- import_tasks: group/core.yaml
+- import_tasks: group/devel.yaml
+# fedora repos
+- import_tasks: flatpak.yaml
+- import_tasks: nodejs.yaml
+- import_tasks: python.yaml
+- import_tasks: java.yaml
 - import_tasks: texlive.yaml
+- import_tasks: editors.yaml
+- import_tasks: steam.yaml
+# external repo
 - import_tasks: 1password.yaml
 - import_tasks: code.yaml
 - import_tasks: brave-browser.yaml
-- import_tasks: nodejs.yaml
-- import_tasks: vim.yaml
-- import_tasks: nvim.yaml
-- import_tasks: emacs.yaml
-- import_tasks: steam.yaml

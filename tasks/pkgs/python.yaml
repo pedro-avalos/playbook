@@ -1,0 +1,8 @@
+---
+
+- name: Install python packages
+  ansible.builtin.dnf:
+    name:
+      - python
+      - python-devel
+    state: latest

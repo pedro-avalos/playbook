@@ -1,20 +1,32 @@
 ---
 
+# rpmfusion
+- import_tasks: keys/rpmfusion.yaml
+- import_tasks: rpmfusion.yaml
+
 #
 # 1password
 #
+- import_tasks: keys/1password.yaml
 - import_tasks: 1password.yaml
 
 #
 # brave
 #
+- import_tasks: keys/brave-browser.yaml
 - import_tasks: brave-browser.yaml
 
 #
 # microsoft
 #
+- import_tasks: keys/microsoft.yaml
 - import_tasks: vscode.yaml
 - import_tasks: ms-teams.yaml
+
+#
+# copr
+#
+- import_tasks: copr.yaml
 
 #
 # flathub
