@@ -1,0 +1,8 @@
+---
+
+- name: Remove pre-installed packages
+  ansible.builtin.dnf:
+    name:
+      - gnome-tour
+      - firefox
+    state: absent
