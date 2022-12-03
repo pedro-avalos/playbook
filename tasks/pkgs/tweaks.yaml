@@ -1,0 +1,6 @@
+---
+
+- name: Install gnome-tweaks package
+  ansible.builtin.dnf:
+    name: gnome-tweaks
+    state: latest
