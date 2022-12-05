@@ -1,9 +1,0 @@
----
-
-- name: Install c packages
-  ansible.builtin.dnf:
-    name:
-      - llvm
-      - clang
-      - clang-devel
-    state: latest

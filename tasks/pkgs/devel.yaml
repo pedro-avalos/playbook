@@ -1,0 +1,19 @@
+---
+
+- name: Install development packages
+  ansible.builtin.dnf:
+    name:
+      - "@Development tools"
+      - llvm
+      - clang
+      - clang-devel
+      - java-latest-openjdk
+      - java-latest-openjdk-devel
+      - nodejs
+      - npm
+      - python
+      - python-devel
+      - python-psutil # Required by ansible dconf
+      - "{{ python_nvim }}"
+      - tmux
+    state: latest
