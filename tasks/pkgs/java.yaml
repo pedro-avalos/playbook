@@ -1,8 +1,0 @@
----
-
-- name: Install java packages
-  ansible.builtin.dnf:
-    name:
-      - java-latest-openjdk
-      - java-latest-openjdk-devel
-    state: latest
