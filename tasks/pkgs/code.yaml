@@ -4,3 +4,7 @@
   ansible.builtin.dnf:
     name: code
     state: latest
+  become: true
+  become_user: root
+  tags:
+    - packages

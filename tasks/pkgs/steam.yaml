@@ -4,3 +4,8 @@
   ansible.builtin.dnf:
     name: steam
     state: latest
+  become: true
+  become_user: root
+  tags:
+    - packages
+    - games

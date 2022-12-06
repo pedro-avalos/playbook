@@ -4,3 +4,5 @@
   ansible.builtin.dnf:
     name: "@core"
     state: latest
+  become: true
+  become_user: root

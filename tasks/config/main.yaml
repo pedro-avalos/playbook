@@ -1,5 +1,15 @@
 ---
 
+######################
+# Root configuration #
+######################
+
+- import_tasks: dnf.yaml
+
+######################
+# User configuration #
+######################
+
 - import_tasks: git.yaml
 - import_tasks: ssh.yaml
 - import_tasks: nvim.yaml

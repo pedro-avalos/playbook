@@ -6,3 +6,5 @@
       - gnome-tour
       - firefox
     state: absent
+  become: true
+  become_user: root

@@ -1,6 +1,7 @@
 ---
 
 - import_tasks: keys.yaml
+
 - import_tasks: rpmfusion.yaml
 - import_tasks: 1password.yaml
 - import_tasks: brave-browser.yaml

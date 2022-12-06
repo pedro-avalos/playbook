@@ -4,3 +4,7 @@
   ansible.builtin.dnf:
     name: brave-browser
     state: latest
+  become: true
+  become_user: root
+  tags:
+    - packages

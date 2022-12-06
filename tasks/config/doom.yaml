@@ -1,33 +1,43 @@
 ---
 
-- name: Install doom emacs prerequisites
-  ansible.builtin.dnf:
-    name:
-      - ripgrep
-      - "{{ fd_find }}"
-    state: latest
-
-- name: Clone doom emacs repo
-  ansible.builtin.git:
-    depth: 1
-    repo: https://github.com/doomemacs/doomemacs
-    dest: "/home/{{ ansible_user_id }}/.emacs.d"
-    clone: yes
-    update: no
-  become: true
-  become_user: "{{ ansible_user_id }}"
-
-- name: Ensure "~/.doom.d" directory exists
-  ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/.doom.d"
-    mode: '0744'
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    state: directory
-
-- name: Copy doom emacs configuration
-  ansible.builtin.copy:
-    src: files/doom.d/
-    dest: "/home/{{ ansible_user_id }}/.doom.d/"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+- name: Set up doom emacs
+  block:
+    - name: Install doom emacs prerequisites
+      ansible.builtin.dnf:
+        name:
+          - ripgrep
+          - "{{ fd_find }}"
+        state: latest
+      become: true
+      become_user: root
+    
+    - name: Clone doom emacs repo
+      ansible.builtin.git:
+        depth: 1
+        repo: https://github.com/doomemacs/doomemacs
+        dest: "/home/{{ ansible_user_id }}/.emacs.d"
+        clone: yes
+        update: no
+      become: true
+      become_user: "{{ ansible_user_id }}"
+    
+    - name: Ensure "~/.doom.d" directory exists
+      ansible.builtin.file:
+        path: "/home/{{ ansible_user_id }}/.doom.d"
+        mode: '0744'
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        state: directory
+      become: true
+      become_user: "{{ ansible_user_id }}"
+    
+    - name: Copy doom emacs configuration
+      ansible.builtin.copy:
+        src: files/doom.d/
+        dest: "/home/{{ ansible_user_id }}/.doom.d/"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+      become: true
+      become_user: "{{ ansible_user_id }}"
+  tags:
+    - configuration

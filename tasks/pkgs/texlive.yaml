@@ -4,3 +4,7 @@
   ansible.builtin.dnf:
     name: texlive-scheme-full
     state: latest
+  become: true
+  become_user: root
+  tags:
+    - packages
