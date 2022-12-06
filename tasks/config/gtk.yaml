@@ -12,6 +12,7 @@
       value: "'prefer-dark'"
     - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
       value: "true"
-  tags: "dconf"
+  tags:
+    - configuration
   become: true
   become_user: "{{ ansible_user_id }}"

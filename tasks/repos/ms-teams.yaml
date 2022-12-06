@@ -9,6 +9,8 @@
     gpgcheck: true
     enabled: true
     skip_if_unavailable: true
+  become: true
+  become_user: root
 
 # Sometimes teams will add its own repository 'teams'
 - name: Remove teams repo
@@ -16,3 +18,5 @@
     name: teams
     state: absent
   notify: yum-clean-metadata
+  become: true
+  become_user: root

@@ -1,0 +1,14 @@
+---
+
+- name: Install nvidia packages
+  ansible.builtin.dnf:
+    name:
+      - akmod-nvidia
+      - xorg-x11-drv-nvidia-cuda
+    state: latest
+  when: ansible_use_nvidia == true
+  become: true
+  become_user: root
+  tags:
+    - packages
+    - drivers

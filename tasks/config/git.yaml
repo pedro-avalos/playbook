@@ -20,3 +20,5 @@
       value: "{{ git_default_branch }}"
   become: true
   become_user: "{{ ansible_user_id }}"
+  tags:
+    - configuration

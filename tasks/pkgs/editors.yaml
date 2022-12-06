@@ -8,3 +8,7 @@
       - vim
       - neovim
       - emacs
+  become: true
+  become_user: root
+  tags:
+    - packages

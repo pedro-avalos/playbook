@@ -1,0 +1,13 @@
+---
+
+- name: Copy dnf.conf
+  ansible.builtin.copy:
+    src: files/dnf.conf
+    dest: /etc/dnf/dnf.conf
+    mode: '644'
+    owner: root
+    group: root
+  tags:
+    - configuration
+  become: true
+  become_user: root

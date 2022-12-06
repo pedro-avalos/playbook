@@ -9,3 +9,5 @@
     gpgcheck: true
     enabled: true
     skip_if_unavailable: true
+  become: true
+  become_user: root

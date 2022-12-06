@@ -10,3 +10,5 @@
     - key: https://packages.microsoft.com/keys/microsoft.asc
     - key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
     - key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+  become: true
+  become_user: root

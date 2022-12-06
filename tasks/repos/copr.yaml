@@ -8,3 +8,5 @@
   loop:
     - host: copr.fedorainfracloud.org
       name: yuezk/globalprotect-openconnect
+  become: true
+  become_user: root
