@@ -21,7 +21,7 @@
           dest: "/home/{{ ansible_user_id }}/.vim/config/"
         - src: files/config/nvim/init.vim
           dest: "/home/{{ ansible_user_id }}/.vimrc"
-  tags:
-    - configuration
   become: true
   become_user: "{{ ansible_user_id }}"
+  tags:
+    - configuration
