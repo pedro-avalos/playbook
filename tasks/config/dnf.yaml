@@ -7,7 +7,7 @@
     mode: '644'
     owner: root
     group: root
-  tags:
-    - configuration
   become: true
   become_user: root
+  tags:
+    - configuration
