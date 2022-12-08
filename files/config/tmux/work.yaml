@@ -1,0 +1,13 @@
+# General tmux configuration when working for AIT-IS @ Wheaton College.
+session_name: work
+
+windows:
+  - window_name: cslab
+  - window_name: ssh
+  - window_name: olm
+  - window_name: salt
+    layout: tiled
+    panes:
+      - echo cssalt
+      - echo issalt
+      - echo issalt2

@@ -13,9 +13,6 @@
       - npm
       - python
       - python-devel
-      - python-psutil # Required by ansible dconf
-      - "{{ python_nvim }}"
-      - tmux
     state: latest
   become: true
   become_user: root
