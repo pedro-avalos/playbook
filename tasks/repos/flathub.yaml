@@ -1,14 +1,15 @@
 ---
 
-- name: Install and set up flatpak
+- name: Install flatpak and set up flathub repo
   block:
     - name: Install flatpak package
       ansible.builtin.dnf:
-        name: flatpak
+        name:
+          - flatpak
         state: latest
       become: true
       become_user: root
-    
+
     - name: Add flathub repo
       community.general.flatpak_remote:
         name: flathub
@@ -20,3 +21,4 @@
   tags:
     - flatpak
     - packages
+    - repos

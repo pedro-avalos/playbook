@@ -1,0 +1,33 @@
+---
+
+- name: Set up tmux configuration
+  block:
+    - name: Install tmux packages
+      ansible.builtin.dnf:
+        name:
+          - tmux
+          - python-tmuxp # Session manager
+        state: latest
+      become: true
+      become_user: root
+
+    - name: Ensure "~/.config/tmux" directory exists
+      ansible.builtin.file:
+        dest: "/home/{{ ansible_user_id }}/.config/tmux"
+        mode: '0755'
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        state: directory
+      become: true
+      become_user: "{{ ansible_user_id }}"
+
+    - name: Copy tmux configuration files and tmuxp files
+      ansible.builtin.copy:
+        src: files/config/tmux/
+        dest: "/home/{{ ansible_user_id }}/.config/tmux/"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+      become: true
+      become_user: "{{ ansible_user_id }}"
+  tags:
+    - configuration

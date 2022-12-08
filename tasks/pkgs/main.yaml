@@ -6,10 +6,8 @@
 
 - import_tasks: group/core.yaml
 
-- import_tasks: flatpak.yaml
 - import_tasks: devel.yaml
 - import_tasks: texlive.yaml
-- import_tasks: editors.yaml
 - import_tasks: steam.yaml
 - import_tasks: tweaks.yaml
 

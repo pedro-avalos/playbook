@@ -5,6 +5,7 @@
     - name: Install doom emacs prerequisites
       ansible.builtin.dnf:
         name:
+          - emacs
           - ripgrep
           - "{{ fd_find }}"
         state: latest

@@ -8,3 +8,4 @@
 - import_tasks: vscode.yaml
 - import_tasks: ms-teams.yaml
 - import_tasks: copr.yaml
+- import_tasks: flathub.yaml
