@@ -1,0 +1,10 @@
+---
+
+- name: Set up Fedora configuration
+  hosts: all
+  vars_files:
+    - vars/main.yaml
+    - vars/git.yaml
+
+  tasks:
+    - import_tasks: tasks/config/main.yaml

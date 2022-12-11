@@ -8,17 +8,36 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let g:thematic#themes = {
-      \ 'onedark': { 'colorscheme': 'onedark',
-      \              ''
-      \ }
-      \ }
-
+" {{{ onedark settings
 let g:onedark_hide_endofbuffer = 1
 let g:onedark_terminal_italics = 1
-colorscheme onedark
+" }}}
+
+let g:thematic#defaults = {
+      \ 'background': 'dark'
+      \ }
+
+let g:thematic#themes = {
+      \ 'onedark': {
+      \ 'colorscheme': 'onedark',
+      \ 'airline-theme': 'onedark',
+      \ },
+      \ 'nord': {
+      \ 'colorscheme': 'nord',
+      \ 'airline-theme': 'nord',
+      \ },
+      \ 'dracula': {
+      \ 'colorscheme': 'dracula',
+      \ 'airline-theme': 'dracula',
+      \ },
+      \ }
+
+let g:thematic#theme_name = 'onedark'
+
+nnoremap <Leader>T :ThematicNext<CR>
+nnoremap <Leader>D :Thematic pencil_dark<CR>
+nnoremap <Leader>L :Thematic pencil_lite<CR>
 
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'onedark',
-      \ }
+
+# vim: fdm=marker
