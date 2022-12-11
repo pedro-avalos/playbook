@@ -2,15 +2,6 @@
 
 - name: Set up (neo)vim configuration
   block:
-    - name: Install (neo)vim packages
-      ansible.builtin.dnf:
-        name:
-          - vim
-          - neovim
-          - "{{ python_nvim }}"
-      become: true
-      become_user: root
-
     - name: Ensure "~/.vim" and "~/.config/nvim" directory exists
       ansible.builtin.file:
         dest: "{{ item.dest }}"
@@ -21,8 +12,6 @@
       loop:
         - dest: "/home/{{ ansible_user_id }}/.vim"
         - dest: "/home/{{ ansible_user_id }}/.config/nvim"
-      become: true
-      become_user: "{{ ansible_user_id }}"
     
     - name: Copy (neo)vim configuration files
       ansible.builtin.copy:
@@ -33,11 +22,13 @@
       loop:
         - src: files/config/nvim/config/
           dest: "/home/{{ ansible_user_id }}/.vim/config/"
+        - src: files/config/nvim/coc-settings.json
+          dest: "/home/{{ ansible_user_id }}/.vim/coc-settings.json"
         - src: files/config/nvim/init.vim
           dest: "/home/{{ ansible_user_id }}/.vimrc"
         - src: files/config/nvim/
           dest: "/home/{{ ansible_user_id }}/.config/nvim/"
-      become: true
-      become_user: "{{ ansible_user_id }}"
+  become: true
+  become_user: "{{ ansible_user_id }}"
   tags:
     - configuration

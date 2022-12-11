@@ -1,7 +1,6 @@
 " File: nerdtree.vim
 " Author: Pedro Avalos
 " Description: (neo)vim NERDTree configuration
-" Last Modified: 2022-11-14
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

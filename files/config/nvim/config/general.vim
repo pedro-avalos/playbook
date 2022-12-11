@@ -1,7 +1,6 @@
 " File: general.vim
 " Author: Pedro Avalos
 " Description: (neo)vim general configuration
-" Last Modified: 2022-11-14
 
 " Display
 set number

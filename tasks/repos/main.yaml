@@ -1,11 +1,8 @@
 ---
 
 - import_tasks: keys.yaml
-
 - import_tasks: rpmfusion.yaml
-- import_tasks: 1password.yaml
-- import_tasks: brave-browser.yaml
-- import_tasks: vscode.yaml
-- import_tasks: ms-teams.yaml
+- import_tasks: misc.yaml
+- import_tasks: unwanted.yaml
 - import_tasks: copr.yaml
 - import_tasks: flathub.yaml
