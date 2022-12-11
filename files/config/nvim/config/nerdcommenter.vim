@@ -1,7 +1,6 @@
 " File: nerdcommenter.vim
 " Author: Pedro Avalos
 " Description: (neo)vim NERDCommenter configuration
-" Last Modified: 2022-11-14
 
 filetype plugin on
 

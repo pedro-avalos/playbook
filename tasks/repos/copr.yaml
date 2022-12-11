@@ -10,3 +10,5 @@
       name: yuezk/globalprotect-openconnect
   become: true
   become_user: root
+  tags:
+    - repositories

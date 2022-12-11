@@ -1,10 +1,11 @@
 ---
 
-- name: Install 1password packages
+- name: Install group packages
   ansible.builtin.dnf:
     name:
-      - 1password
-      - 1password-cli
+      - "@core"
+      - "@development tools"
+      - "@virtualization"
     state: latest
   become: true
   become_user: root

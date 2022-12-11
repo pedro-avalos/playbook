@@ -1,20 +1,6 @@
 ---
 
-################
-# FEDORA REPOS #
-################
-
-- import_tasks: group/core.yaml
-
-- import_tasks: devel.yaml
-- import_tasks: texlive.yaml
-- import_tasks: steam.yaml
-- import_tasks: tweaks.yaml
-
-##################
-# EXTERNAL REPOS #
-##################
-
-- import_tasks: 1password.yaml
-- import_tasks: code.yaml
-- import_tasks: brave-browser.yaml
+- import_tasks: helpers/updates.yaml
+- import_tasks: group.yaml
+- import_tasks: extra.yaml
+- import_tasks: fonts.yaml

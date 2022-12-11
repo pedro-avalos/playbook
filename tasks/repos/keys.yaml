@@ -12,3 +12,5 @@
     - key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
   become: true
   become_user: root
+  tags:
+    - repositories

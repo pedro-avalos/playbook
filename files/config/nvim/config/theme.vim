@@ -1,7 +1,6 @@
 " File: theme.vim
 " Author: Pedro Avalos
 " Description: (neo)vim theme configuration
-" Last Modified: 2022-11-14
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
@@ -9,9 +8,17 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme nord
+let g:thematic#themes = {
+      \ 'onedark': { 'colorscheme': 'onedark',
+      \              ''
+      \ }
+      \ }
+
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'onedark',
       \ }

@@ -13,6 +13,8 @@
       - npm
       - python
       - python-devel
+      - python-flake8
+      - python-black
     state: latest
   become: true
   become_user: root

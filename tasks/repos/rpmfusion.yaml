@@ -32,3 +32,5 @@
       gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
   become: true
   become_user: root
+  tags:
+    - repositories
