@@ -36,8 +36,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree' |
                   \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'arcticicestudio/nord-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', {'as': 'dracula'}
 
 Plug 'vim-airline/vim-airline'
 
