@@ -2,42 +2,53 @@
 " Author: Pedro Avalos
 " Description: (neo)vim theme configuration
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-  set termguicolors
+if has('termguicolors')
+      set termguicolors
 endif
 
-" {{{ onedark settings
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 1
-" }}}
-
 let g:thematic#defaults = {
-      \ 'background': 'dark'
-      \ }
+                  \ 'background': 'dark',
+                  \ 'laststatus': 2,
+                  \ }
 
 let g:thematic#themes = {
-      \ 'onedark': {
-      \ 'colorscheme': 'onedark',
-      \ 'airline-theme': 'onedark',
-      \ },
-      \ 'nord': {
-      \ 'colorscheme': 'nord',
-      \ 'airline-theme': 'nord',
-      \ },
-      \ 'dracula': {
-      \ 'colorscheme': 'dracula',
-      \ 'airline-theme': 'dracula',
-      \ },
-      \ }
+                  \ 'edge_dark': {
+                  \ 'colorscheme': 'edge',
+                  \ 'airline-theme': 'edge',
+                  \ },
+                  \ 'edge_light': {
+                  \ 'colorscheme': 'edge',
+                  \ 'airline-theme': 'edge',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'everforest_dark': {
+                  \ 'colorscheme': 'everforest',
+                  \ 'airline-theme': 'everforest',
+                  \ },
+                  \ 'everforest_light': {
+                  \ 'colorscheme': 'everforest',
+                  \ 'airline-theme': 'everforest',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'gruvbox_material_dark': {
+                  \ 'colorscheme': 'gruvbox-material',
+                  \ 'airline-theme': 'gruvbox_material',
+                  \ },
+                  \ 'gruvbox_material_light': {
+                  \ 'colorscheme': 'gruvbox-material',
+                  \ 'airline-theme': 'gruvbox_material',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'nord': {
+                  \ 'airline-theme': 'nord',
+                  \ },
+                  \ 'dracula': {
+                  \ 'airline-theme': 'dracula',
+                  \ },
+                  \ }
 
-let g:thematic#theme_name = 'onedark'
+let g:thematic#theme_name = 'edge_dark'
 
 nnoremap <Leader>T :ThematicNext<CR>
-nnoremap <Leader>D :Thematic pencil_dark<CR>
-nnoremap <Leader>L :Thematic pencil_lite<CR>
-
-set laststatus=2
-
-" vim: fdm=marker
+nnoremap <Leader>D :Thematic edge_dark<CR>
+nnoremap <Leader>L :Thematic edge_light<CR>

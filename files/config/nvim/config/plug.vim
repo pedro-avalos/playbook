@@ -36,7 +36,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree' |
                   \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', {'as': 'dracula'}
 
