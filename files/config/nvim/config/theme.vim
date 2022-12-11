@@ -40,4 +40,4 @@ nnoremap <Leader>L :Thematic pencil_lite<CR>
 
 set laststatus=2
 
-# vim: fdm=marker
+" vim: fdm=marker
