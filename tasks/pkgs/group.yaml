@@ -5,6 +5,8 @@
     name:
       - "@core"
       - "@development tools"
+      - "@c development tools and libraries"
+      - "@rpm development tools"
       - "@virtualization"
     state: latest
   become: true
