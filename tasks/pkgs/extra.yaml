@@ -10,7 +10,10 @@
       - brave-browser
       - steam
 
-      - tmux
+      - bash
+      - bash-completion
+      - zsh
+      - fish
 
       - vim
       - neovim
@@ -18,8 +21,6 @@
       - code
 
       - texlive-scheme-full
-
-      - libtree-sitter
 
       - llvm
       - clang
@@ -29,7 +30,11 @@
       - java-latest-openjdk-devel
 
       - nodejs
+      - nodejs-devel
       - npm
+
+      - ruby
+      - ruby-devel
 
       - python
       - python-devel
@@ -39,8 +44,10 @@
       - python-tmuxp
       - "{{ python_nvim }}"
 
+      - tmux
       - ripgrep
       - "{{ fd_find }}"
+      - libtree-sitter
     state: latest
   become: true
   become_user: root
