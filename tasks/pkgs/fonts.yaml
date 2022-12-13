@@ -20,6 +20,7 @@
       - msimonson-anonymouspro-fonts
       - overpass-fonts
       - terminus-fonts
+      - powerline-fonts
     state: latest
   become: true
   become_user: root
