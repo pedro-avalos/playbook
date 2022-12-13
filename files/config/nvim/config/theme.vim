@@ -6,6 +6,8 @@ if has('termguicolors')
       set termguicolors
 endif
 
+let g:airline_powerline_fonts=1
+
 let g:thematic#defaults = {
                   \ 'background': 'dark',
                   \ 'laststatus': 2,
