@@ -30,6 +30,7 @@ source ~/.git-prompt.sh
 function __ssh_ps1() {
   local exit=$?
   local printf_format="\e[1m%s\e[0m"
+
   case "$#" in
     0|1) printf_format="${1:-$printf_format}"
       ;;
@@ -45,7 +46,7 @@ function __ssh_ps1() {
   return $exit
 }
 
-export PS1="$(__ssh_ps1) \u@\h \W$(__git_ps1 ' (%s)') \$ "
+export PS1='$(__ssh_ps1) \u@\h \W$(__git_ps1 " (%s)") \$ '
 # }}}
 
 source ~/.bash_aliases
