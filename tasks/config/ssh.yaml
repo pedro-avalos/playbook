@@ -4,12 +4,12 @@
   block:
     - name: Ensure "~/.ssh" directory exists
       ansible.builtin.file:
-        dest: "/home/{{ ansible_user_id }}/.ssh"
+        path: "/home/{{ ansible_user_id }}/.ssh"
         mode: '0700'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
-    
+
     - name: Copy ssh config
       ansible.builtin.copy:
         src: files/ssh/config

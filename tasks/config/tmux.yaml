@@ -4,7 +4,7 @@
   block:
     - name: Ensure "~/.config/tmux" directory exists
       ansible.builtin.file:
-        dest: "/home/{{ ansible_user_id }}/.config/tmux"
+        path: "/home/{{ ansible_user_id }}/.config/tmux"
         mode: '0755'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"

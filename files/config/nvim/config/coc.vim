@@ -176,7 +176,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "}}}
 
 " {{{coc-snippets
-
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 

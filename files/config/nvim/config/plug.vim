@@ -44,6 +44,7 @@ Plug 'dracula/vim', {'as': 'dracula'}
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
