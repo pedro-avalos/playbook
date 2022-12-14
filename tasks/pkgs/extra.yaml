@@ -46,6 +46,9 @@
       - "{{ python_nvim }}"
 
       - tmux
+      - fzf
+      - gawk
+      - sed
       - ripgrep
       - "{{ fd_find }}"
       - libtree-sitter

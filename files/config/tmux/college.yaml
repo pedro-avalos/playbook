@@ -2,6 +2,6 @@
 session_name: college
 
 windows:
-  - window_name: cslab
   - window_name: local
+  - window_name: cslab
   - window_name: man

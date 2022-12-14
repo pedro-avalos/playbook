@@ -9,6 +9,10 @@ set colorcolumn=80
 set showcmd
 set foldmethod=syntax
 
+" For vimwiki
+set nocompatible
+filetype plugin on
+
 " Syntax
 syntax on
 

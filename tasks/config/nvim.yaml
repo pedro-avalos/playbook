@@ -2,17 +2,18 @@
 
 - name: Set up (neo)vim configuration
   block:
-    - name: Ensure "~/.vim" and "~/.config/nvim" directory exists
+    - name: Ensure "~/.vim", "~/.config/nvim", and "~/vimwiki" directories exist
       ansible.builtin.file:
-        dest: "{{ item.dest }}"
+        path: "{{ item.path }}"
         mode: '0744'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
       loop:
-        - dest: "/home/{{ ansible_user_id }}/.vim"
-        - dest: "/home/{{ ansible_user_id }}/.config/nvim"
-    
+        - path: "/home/{{ ansible_user_id }}/.vim"
+        - path: "/home/{{ ansible_user_id }}/.config/nvim"
+        - path: "/home/{{ ansible_user_id }}/vimwiki"
+
     - name: Copy (neo)vim configuration files
       ansible.builtin.copy:
         src: "{{ item.src }}"
