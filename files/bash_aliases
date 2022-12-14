@@ -5,5 +5,12 @@ alias vi="vim"
 alias diff="nvim -d"
 
 alias ls="ls --color=auto -F"
-alias la="ls -a"
-alias ll="ls -lh -a"
+alias la="ls --color=auto -a"
+alias ll="ls --color=auto -lh -a"
+
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
