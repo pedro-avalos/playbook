@@ -29,7 +29,13 @@ source ~/.git-prompt.sh
 # {{{ Prompt
 function __ssh_ps1() {
   local exit=$?
-  local printf_format="\e[1m%s\e[0m"
+  local GREEN=$(tput setaf 2)
+  local GREY=$(tput setaf 7)
+  local MAROON=$(tput setaf 9)
+  local YELLOW=$(tput setaf 11)
+  local BOLD=$(tput bold)
+  local RESET=$(tput sgr0)
+  local printf_format="${BOLD}${GREEN}%s${RESET}"
 
   case "$#" in
     0|1) printf_format="${1:-$printf_format}"
