@@ -5,27 +5,49 @@ if [[ -f /etc/bashrc ]] ; then
   source /etc/bashrc
 fi
 
-if [[ $- != *i* ]] ; then
-  return
-fi
-
-source ~/.git-prompt.sh
-
+# {{{ Bash settings
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
+# }}}
+
+export SUDO_EDITOR=nvim
+export VISUAL=nvim
+export EDITOR=nvim
 
 export PAGER="most"
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export VISUAL=nvim
 
-if [[ -n $SSH_CONNECTION ]] ; then
-  export EDITOR=vim
-else
-  export EDITOR=nvim
+if [[ $- != *i* ]] ; then
+  return # Non-interactive shell
 fi
 
-export PS1='\u@\h \W$(__git_ps1 " (%s)") \$ '
+# For git in prompt
+source ~/.git-prompt.sh
+
+# {{{ Prompt
+function __ssh_ps1() {
+  local exit=$?
+  local printf_format="\e[1m%s\e[0m"
+  case "$#" in
+    0|1) printf_format="${1:-$printf_format}"
+      ;;
+    *) return $exit
+  esac
+
+  if [[ -n $SSH_CONNECTION ]] ; then
+    printf -- "$printf_format" "σ"
+  else
+    printf -- "$printf_format" "λ"
+  fi
+
+  return $exit
+}
+
+export PS1="$(__ssh_ps1) \u@\h \W$(__git_ps1 ' (%s)') \$ "
+# }}}
 
 source ~/.bash_aliases
+
+# vim: fdm=marker
