@@ -10,6 +10,7 @@
 # User configuration #
 ######################
 
+- import_tasks: bash.yaml
 - import_tasks: git.yaml
 - import_tasks: ssh.yaml
 - import_tasks: tmux.yaml

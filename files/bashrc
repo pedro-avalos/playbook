@@ -1,0 +1,27 @@
+# File: .bashrc
+
+# Source global definitions
+if [[ -f /etc/bashrc ]] ; then
+  . /etc/bashrc
+fi
+
+if [[ $- != *i* ]] ; then
+  return
+fi
+
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL=ignoreboth
+
+export PAGER="most"
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export VISUAL=nvim
+
+if [[ -n $SSH_CONNECTION ]] ; then
+  export EDITOR=vim
+else
+  export EDITOR=nvim
+fi
+
+. ~/.bash_aliases
