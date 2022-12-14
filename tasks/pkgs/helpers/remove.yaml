@@ -4,7 +4,6 @@
   ansible.builtin.dnf:
     name:
       - gnome-tour
-      - firefox
     state: absent
   become: true
   become_user: root
