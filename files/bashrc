@@ -2,12 +2,14 @@
 
 # Source global definitions
 if [[ -f /etc/bashrc ]] ; then
-  . /etc/bashrc
+  source /etc/bashrc
 fi
 
 if [[ $- != *i* ]] ; then
   return
 fi
+
+source ~/.git-prompt.sh
 
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
@@ -24,4 +26,6 @@ else
   export EDITOR=nvim
 fi
 
-. ~/.bash_aliases
+export PS1='\u@\h \W$(__git_ps1 " (%s)") \$ '
+
+source ~/.bash_aliases

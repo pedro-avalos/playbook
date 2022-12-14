@@ -15,6 +15,12 @@
           dest: "/home/{{ ansible_user_id }}/.bash_aliases"
         - src: files/bash_profile
           dest: "/home/{{ ansible_user_id }}/.bash_profile"
+
+    - name: Symlink "git-prompt.sh"
+      ansible.builtin.file:
+        src: /usr/share/git-core/contrib/completion/git-prompt.sh
+        dest: "/home/{{ ansible_user_id }}/.git-prompt.sh"
+        state: link
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
