@@ -34,13 +34,14 @@ YELLOW=$(tput setaf 11)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
+# {{{ __ssh_ps1
 # Check if this bash instance is running in an ssh connection.
 # Depending on this, the icon printed will be different.
 function __ssh_ps1() {
   local exit=$?
   local ssh_icon="s"
   local lcl_icon=""
-  local ssh_format="${BOLD}${YELLOW}%s${RESET}"
+  local ssh_format="${BOLD}${MAROON}%s${RESET}"
   local lcl_format="${BOLD}${GREEN}%s${RESET}"
 
   case "$#" in
@@ -61,7 +62,9 @@ function __ssh_ps1() {
 
   return $exit
 }
+# }}}
 
+# {{{ __child_ps1
 # Check if this bash instance is a child instance.
 # Add an icon if it is a child.
 function __child_ps1() {
@@ -83,6 +86,7 @@ function __child_ps1() {
 
   return $exit
 }
+# }}}
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\[$(__ssh_ps1 "σ " "λ ")$(__child_ps1 "β ")\]\u@\h \W\[$(__git_ps1 " (%s)")\] \$ '
