@@ -2,7 +2,7 @@
 
 - name: Set up tmux configuration
   block:
-    - name: Ensure "~/.config/tmux" directory exists
+    - name: Ensure tmux directory exists
       ansible.builtin.file:
         path: "/home/{{ ansible_user_id }}/.config/tmux"
         mode: '0755'

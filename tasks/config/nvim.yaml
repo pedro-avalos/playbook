@@ -2,7 +2,8 @@
 
 - name: Set up (neo)vim configuration
   block:
-    - name: Ensure "~/.vim", "~/.config/nvim", and "~/vimwiki" directories exist
+    # {{{ Ensure directories exist
+    - name: Ensure (neo)vim directories exist
       ansible.builtin.file:
         path: "{{ item.path }}"
         mode: '0744'
@@ -13,7 +14,9 @@
         - path: "/home/{{ ansible_user_id }}/.vim"
         - path: "/home/{{ ansible_user_id }}/.config/nvim"
         - path: "/home/{{ ansible_user_id }}/vimwiki"
+    # }}}
 
+    # {{{ Copy configuration files
     - name: Copy (neo)vim configuration files
       ansible.builtin.copy:
         src: "{{ item.src }}"
@@ -29,7 +32,11 @@
           dest: "/home/{{ ansible_user_id }}/.vimrc"
         - src: files/config/nvim/
           dest: "/home/{{ ansible_user_id }}/.config/nvim/"
+    # }}}
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
+    - user
     - configuration
+
+# vim: fdm=marker

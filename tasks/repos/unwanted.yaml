@@ -2,7 +2,7 @@
 
 - name: Remove unwanted repos
   ansible.builtin.yum_repository:
-    name: "{{item.name }}"
+    name: "{{ item.name }}"
     state: absent
   loop:
     - name: teams # Added by Microsoft Teams application

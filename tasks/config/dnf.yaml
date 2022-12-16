@@ -10,4 +10,5 @@
   become: true
   become_user: root
   tags:
+    - root
     - configuration
