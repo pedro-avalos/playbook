@@ -23,75 +23,7 @@ if [[ $- != *i* ]] ; then
   return # Non-interactive shell
 fi
 
-# For git in prompt
-source ~/.git-prompt.sh
-
-# {{{ Prompt
-GREEN=$(tput setaf 2)
-GREY=$(tput setaf 7)
-MAROON=$(tput setaf 9)
-YELLOW=$(tput setaf 11)
-BOLD=$(tput bold)
-RESET=$(tput sgr0)
-
-# {{{ __ssh_ps1
-# Check if this bash instance is running in an ssh connection.
-# Depending on this, the icon printed will be different.
-function __ssh_ps1() {
-  local exit=$?
-  local ssh_icon="s"
-  local lcl_icon=""
-  local ssh_format="${BOLD}${MAROON}%s${RESET}"
-  local lcl_format="${BOLD}${GREEN}%s${RESET}"
-
-  case "$#" in
-    0|1|2|3|4)
-      ssh_icon="${1:-$ssh_icon}"
-      lcl_icon="${2:-$lcl_icon}"
-      ssh_format="${3:-$ssh_format}"
-      lcl_format="${4:-$lcl_format}"
-      ;;
-    *) return $exit
-  esac
-
-  if [[ -n $SSH_CONNECTION ]] ; then
-    printf -- "$ssh_format" "${ssh_icon}"
-  else
-    printf -- "$lcl_format" "${lcl_icon}"
-  fi
-
-  return $exit
-}
-# }}}
-
-# {{{ __child_ps1
-# Check if this bash instance is a child instance.
-# Add an icon if it is a child.
-function __child_ps1() {
-  local exit=$?
-  local icon="b"
-  local printf_format="${BOLD}${YELLOW}%s${RESET}"
-
-  case "$#" in
-    0|1|2)
-      icon="${1:-$icon}"
-      printf_format="${2:-$printf_format}"
-      ;;
-    *) return $exit
-  esac
-
-  if [[ $SHLVL -gt 1 ]] ; then
-    printf -- "$printf_format" "$icon"
-  fi
-
-  return $exit
-}
-# }}}
-
-export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\[$(__ssh_ps1 "σ " "λ ")$(__child_ps1 "β ")\]\u@\h \W\[$(__git_ps1 " (%s)")\] \$ '
-# }}}
-
+source ~/.bash-prompt.sh
 source ~/.bash_aliases
 
 # vim: fdm=marker
