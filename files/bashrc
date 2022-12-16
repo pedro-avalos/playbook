@@ -14,10 +14,10 @@ export HISTCONTROL=ignoreboth
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
 export EDITOR=nvim
-
-export PAGER="most"
+export PAGER=less
+export BAT_THEME=TwoDark
 export MANROFFOPT="-c"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=gruvbox-dark'" # Color bug with TwoDark
 
 if [[ $- != *i* ]] ; then
   return # Non-interactive shell
