@@ -1,6 +1,0 @@
----
-
-- name: Install nodejs package
-  ansible.builtin.dnf:
-    name: nodejs
-    state: latest

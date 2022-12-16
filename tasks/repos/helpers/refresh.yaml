@@ -3,4 +3,6 @@
 - name: Refresh repo metadata
   ansible.builtin.dnf:
     update_cache: yes
-    state: latest
+    state: present
+  become: true
+  become_user: root

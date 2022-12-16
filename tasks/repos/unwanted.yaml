@@ -1,0 +1,13 @@
+---
+
+- name: Remove unwanted repos
+  ansible.builtin.yum_repository:
+    name: "{{ item.name }}"
+    state: absent
+  loop:
+    - name: teams # Added by Microsoft Teams application
+  notify: yum-clean-metadata
+  become: true
+  become_user: root
+  tags:
+    - repositories

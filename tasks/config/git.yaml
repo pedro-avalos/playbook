@@ -1,26 +1,25 @@
 ---
 
-- name: Configure git user.name
+- name: Configure git
   community.general.git_config:
-    name: user.name
-    scope: global
-    value: "{{ git_username }}"
-
-- name: Configure git user.email
-  community.general.git_config:
-    name: user.email
-    scope: global
-    value: "{{ git_email }}"
-
-- name: Configure git core.editor
-  community.general.git_config:
-    name: core.editor
-    scope: global
-    value: "{{ git_editor }}"
-
-
-- name: Configure init.defaultBranch
-  community.general.git_config:
-    name: init.defaultBranch
-    scope: global
-    value: "{{ git_default_branch }}"
+    name: "{{ item.name }}"
+    scope: "{{ item.scope }}"
+    value: "{{ item.value }}"
+  loop:
+    - name: user.name
+      scope: global
+      value: "{{ git_username }}"
+    - name: user.email
+      scope: global
+      value: "{{ git_email }}"
+    - name: core.editor
+      scope: global
+      value: "{{ git_editor }}"
+    - name: init.defaultBranch
+      scope: global
+      value: "{{ git_default_branch }}"
+  become: true
+  become_user: "{{ ansible_user_id }}"
+  tags:
+    - user
+    - configuration

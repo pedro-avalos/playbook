@@ -1,9 +1,8 @@
 " File: plug.vim
 " Author: Pedro Avalos
 " Description: (neo)vim Plug configuration
-" Last Modified: 2022-11-14
 
-" Check if vim-plug is installed
+" {{{ Check if vim-plug is installed
 if has('nvim')
       if empty(glob('~/.config/nvim/autoload/plug.vim'))
             silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -17,26 +16,41 @@ else
             autocmd VimEnter * PlugInstall | source $MYVIMRC
       endif
 endif
+" }}}
 
-" Install missing plugins
+" {{{ Install missing plugins
 autocmd VimEnter *
                   \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
                   \| PlugInstall --sync | q
                   \| endif
+" }}}
 
-" Plugins
+" {{{ Plugins
 call plug#begin()
 
-Plug 'arcticicestudio/nord-vim'
-Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'preservim/vim-thematic'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree' |
                   \ Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', {'as': 'dracula'}
+
+Plug 'vim-airline/vim-airline'
+
+Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
-Plug 'junegunn/vim-easy-align'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'honza/vim-snippets'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
 if has('nvim') || has('patch-8.0.902')
       Plug 'mhinz/vim-signify'
 else
@@ -44,3 +58,6 @@ else
 endif
 
 call plug#end()
+" }}}
+
+" vim: fdm=marker

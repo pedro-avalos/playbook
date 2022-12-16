@@ -1,0 +1,14 @@
+---
+
+- name: Set up Fedora post-install
+  hosts: all
+  vars_files:
+    - vars/main.yaml
+    - vars/pkgs.yaml
+    - vars/git.yaml
+
+  tasks:
+    - import_tasks: tasks/repos/main.yaml          # Enable repositories
+    - import_tasks: tasks/pkgs/helpers/remove.yaml # Remove pre-installed packages
+    - import_tasks: tasks/pkgs/main.yaml           # Install packages
+    - import_tasks: tasks/config/main.yaml         # Basic configuration

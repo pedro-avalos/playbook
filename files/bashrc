@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# File: .bashrc
+
+# Source global definitions
+if [[ -f /etc/bashrc ]] ; then
+  source /etc/bashrc
+fi
+
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL=ignoreboth
+
+export SUDO_EDITOR=nvim
+export VISUAL=nvim
+export EDITOR=nvim
+export PAGER=less
+export BAT_THEME=TwoDark
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=gruvbox-dark'" # Color bug with TwoDark
+
+if [[ $- != *i* ]] ; then
+  return # Non-interactive shell
+fi
+
+shopt -s autocd       # When given just a path/directory, cd into it
+shopt -s checkwinsize # Check window size after each command
+
+# Source other configuration files
+if [[ -d ~/.bashrc.d ]] ; then
+  for file in ~/.bashrc.d/*.bashrc ; do
+    source ${file}
+  done
+fi
+
+# vim: fdm=marker ft=bash

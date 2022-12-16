@@ -1,7 +1,6 @@
 " File: init.vim
 " Author: Pedro Avalos
 " Description: (neo)vim main configuration
-" Last Modified: 2022-11-14
 
 if has('nvim')
   source $HOME/.config/nvim/config/general.vim

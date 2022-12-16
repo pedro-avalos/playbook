@@ -3,5 +3,6 @@
 # NOTE: The following will need to be updated depending on the machine
 ansible_user_id: pavalos
 ansible_distribution: fedora
-ansible_release_version: 36
+ansible_release_version: 37
 ansible_architecture: x86_64
+ansible_use_nvidia: false

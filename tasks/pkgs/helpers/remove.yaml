@@ -1,0 +1,9 @@
+---
+
+- name: Remove pre-installed packages
+  ansible.builtin.dnf:
+    name:
+      - gnome-tour
+    state: absent
+  become: true
+  become_user: root

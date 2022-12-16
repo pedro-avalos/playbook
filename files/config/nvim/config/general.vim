@@ -1,7 +1,6 @@
 " File: general.vim
 " Author: Pedro Avalos
 " Description: (neo)vim general configuration
-" Last Modified: 2022-11-14
 
 " Display
 set number
@@ -9,6 +8,10 @@ set nowrap
 set colorcolumn=80
 set showcmd
 set foldmethod=syntax
+
+" For vimwiki
+set nocompatible
+filetype plugin on
 
 " Syntax
 syntax on

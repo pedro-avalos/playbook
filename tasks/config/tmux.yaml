@@ -1,20 +1,19 @@
 ---
 
-- name: Set up ssh configuration
+- name: Set up tmux configuration
   block:
-    - name: Ensure "~/.ssh" directory exists
+    - name: Ensure tmux directory exists
       ansible.builtin.file:
-        path: "/home/{{ ansible_user_id }}/.ssh"
-        mode: '0700'
+        path: "/home/{{ ansible_user_id }}/.config/tmux"
+        mode: '0755'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
 
-    - name: Copy ssh config
+    - name: Copy tmux configuration files and tmuxp files
       ansible.builtin.copy:
-        src: files/ssh/config
-        dest: "/home/{{ ansible_user_id }}/.ssh/config"
-        mode: '0400'
+        src: files/config/tmux/
+        dest: "/home/{{ ansible_user_id }}/.config/tmux/"
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
   become: true

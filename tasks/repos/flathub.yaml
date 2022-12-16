@@ -1,8 +1,24 @@
 ---
 
-- name: Add flathub repo
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpkarepo
-    method: user
+- name: Install flatpak and set up flathub repo
+  block:
+    - name: Install flatpak package
+      ansible.builtin.dnf:
+        name:
+          - flatpak
+        state: latest
+      become: true
+      become_user: root
+
+    - name: Add flathub repo
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+        method: user
+      become: true
+      become_user: "{{ ansible_user_id }}"
+  tags:
+    - flatpak
+    - packages
+    - repositories

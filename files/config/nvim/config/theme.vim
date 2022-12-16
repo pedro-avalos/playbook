@@ -1,17 +1,56 @@
 " File: theme.vim
 " Author: Pedro Avalos
 " Description: (neo)vim theme configuration
-" Last Modified: 2022-11-14
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-  set termguicolors
+if has('termguicolors')
+      set termguicolors
 endif
 
-colorscheme nord
+let g:airline_powerline_fonts=1
 
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+let g:thematic#defaults = {
+                  \ 'background': 'dark',
+                  \ 'laststatus': 2,
+                  \ }
+
+let g:thematic#themes = {
+                  \ 'edge_dark': {
+                  \ 'colorscheme': 'edge',
+                  \ 'airline-theme': 'edge',
+                  \ },
+                  \ 'edge_light': {
+                  \ 'colorscheme': 'edge',
+                  \ 'airline-theme': 'edge',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'everforest_dark': {
+                  \ 'colorscheme': 'everforest',
+                  \ 'airline-theme': 'everforest',
+                  \ },
+                  \ 'everforest_light': {
+                  \ 'colorscheme': 'everforest',
+                  \ 'airline-theme': 'everforest',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'gruvbox_material_dark': {
+                  \ 'colorscheme': 'gruvbox-material',
+                  \ 'airline-theme': 'gruvbox_material',
+                  \ },
+                  \ 'gruvbox_material_light': {
+                  \ 'colorscheme': 'gruvbox-material',
+                  \ 'airline-theme': 'gruvbox_material',
+                  \ 'background': 'light',
+                  \ },
+                  \ 'nord': {
+                  \ 'airline-theme': 'nord',
+                  \ },
+                  \ 'dracula': {
+                  \ 'airline-theme': 'dracula',
+                  \ },
+                  \ }
+
+let g:thematic#theme_name = 'edge_dark'
+
+nnoremap <Leader>T :ThematicNext<CR>
+nnoremap <Leader>D :Thematic edge_dark<CR>
+nnoremap <Leader>L :Thematic edge_light<CR>

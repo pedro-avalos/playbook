@@ -2,5 +2,6 @@
 
 - name: Remove packages installed as dependencies
   ansible.builtin.dnf:
-    autoremove: yes
-
+    autoremove: true
+  become: true
+  become_user: root
