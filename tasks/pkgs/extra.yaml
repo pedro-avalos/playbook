@@ -11,8 +11,10 @@
       - brave-browser
       - steam
 
+      - ShellCheck
       - bash
       - bash-completion
+      - bash-devel
       - zsh
       - fish
 
@@ -46,7 +48,6 @@
       - python-tmuxp
       - "{{ python_nvim }}"
 
-      - ShellCheck
       - htop
       - bpytop
       - tmux
