@@ -50,6 +50,7 @@
       - fzf
       - gawk
       - bat
+      - most
       - sed
       - ripgrep
       - "{{ fd_find }}"
