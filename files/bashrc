@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # File: .bashrc
 
 # Source global definitions
@@ -5,11 +6,9 @@ if [[ -f /etc/bashrc ]] ; then
   source /etc/bashrc
 fi
 
-# {{{ Bash settings
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
-# }}}
 
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
@@ -23,7 +22,14 @@ if [[ $- != *i* ]] ; then
   return # Non-interactive shell
 fi
 
-source ~/.bash-prompt.sh
-source ~/.bash_aliases
+shopt -s autocd       # When given just a path/directory, cd into it
+shopt -s checkwinsize # Check window size after each command
 
-# vim: fdm=marker
+# Source other configuration files
+if [[ -d ~/.bashrc.d ]] ; then
+  for file in ~/.bashrc.d/*.bashrc ; do
+    source ${file}
+  done
+fi
+
+# vim: fdm=marker ft=bash

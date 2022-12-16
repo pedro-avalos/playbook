@@ -1,19 +1,20 @@
 ---
 
-######################
-# Root configuration #
-######################
-
+# {{{ Root configuration
 - import_tasks: dnf.yaml
+# }}}
 
-######################
-# User configuration #
-######################
-
-- import_tasks: bash.yaml
+# {{{ User configuration
 - import_tasks: git.yaml
 - import_tasks: ssh.yaml
 - import_tasks: tmux.yaml
 - import_tasks: nvim.yaml
 - import_tasks: doom.yaml
 - import_tasks: gtk.yaml
+# }}}
+
+# {{{ Root & User configuration
+- import_tasks: bash.yaml
+# }}}
+
+# vim: fdm=marker

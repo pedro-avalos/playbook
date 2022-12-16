@@ -1,17 +1,25 @@
-# File: .bash-prompt.sh
+#!/usr/bin/env bash
+# File: bash-prompt.bashrc
 
-source ~/.git-prompt.sh # Needed for git repo status
+# {{{ git-prompt.sh
+# Needed for git repo status
+if [[ -f ~/.bashrc.d/git-prompt.sh ]] ; then
+  source ~/.bashrc.d/git-prompt.sh
+fi
 
-export GIT_PS1_SHOWDIRTYSTATE=1      # '*'=unstaged, '+'=staged
-export GIT_PS1_SHOWSTASHSTATE=1      # '$'=stashed
-export GIT_PS1_SHOWUNTRACKEDFILES=1  # '%'=untracked
-export GIT_PS1_STATESEPARATOR="" # No space between branch and index status
+export GIT_PS1_SHOWDIRTYSTATE=1     # '*'=unstaged, '+'=staged
+export GIT_PS1_SHOWSTASHSTATE=1     # '$'=stashed
+export GIT_PS1_SHOWUNTRACKEDFILES=1 # '%'=untracked
+export GIT_PS1_STATESEPARATOR=""    # No space between branch and index status
+# }}}
 
 # {{{ __color_enabled
 # Check if the terminal supports colors
 function __color_enabled() {
-  local -i colors=$(tput colors 2> /dev/null)
-  [[ $? -eq 0 ]] && [[ ${colors} -gt 2 ]]
+  local exit=$?
+  local -i colors
+  colors=$(tput colors 2> /dev/null)
+  [[ ${exit} -eq 0 ]] && [[ ${colors} -gt 2 ]]
 }
 # }}}
 
@@ -23,10 +31,10 @@ unset __colorize_prompt && __color_enabled && __colorize_prompt=1
 # Depending on this, the icon printed will be different.
 function __ssh_ps1() {
   local exit=$?
-  local ssh_icon="s"
-  local local_icon=""
-  local ssh_format="%s"
-  local local_format="%s"
+  local ssh_icon='s'
+  local local_icon=''
+  local ssh_format='%s'
+  local local_format='%s'
 
   case "$#" in
     0|1|2|3|4)
@@ -53,8 +61,8 @@ function __ssh_ps1() {
 # Add an icon if it is a child.
 function __child_ps1() {
   local exit=$?
-  local child_icon="b"
-  local child_format="%s"
+  local child_icon='b'
+  local child_format='%s'
 
   case "$#" in
     0|1|2)
@@ -73,35 +81,38 @@ function __child_ps1() {
 # }}}
 
 # {{{ __set_ps1
+# Create the bash prompt.
 function __set_ps1() {
   local exit=$?
 
-  local _black='\[$(tput setaf 0)\]'
-  local _red='\[$(tput setaf 1)\]'
-  local _green='\[$(tput setaf 2)\]'
-  local _yellow='\[$(tput setaf 3)\]'
-  local _blue='\[$(tput setaf 4)\]'
-  local _magenta='\[$(tput setaf 5)\]'
-  local _cyan='\[$(tput setaf 6)\]'
-  local _white='\[$(tput setaf 7)\]'
-  local _bold='\[$(tput bold)\]'
-  local _reset='\[$(tput sgr0)\]'
+  local _black
+  local _red
+  local _green
+  local _yellow
+  local _blue
+  local _magenta
+  local _cyan
+  local _white
+  local _bold
+  local _blink
+  local _reset
 
   if [[ ${__colorize_prompt} ]] ; then
     export GIT_PS1_SHOWCOLORHINTS=1
+
+    _black="\[$(tput setaf 0)\]"
+    _red="\[$(tput setaf 1)\]"
+    _green="\[$(tput setaf 2)\]"
+    _yellow="\[$(tput setaf 3)\]"
+    _blue="\[$(tput setaf 4)\]"
+    _magenta="\[$(tput setaf 5)\]"
+    _cyan="\[$(tput setaf 6)\]"
+    _white="\[$(tput setaf 7)\]"
+    _bold="\[$(tput bold)\]"
+    _blink="\[$(tput blink)\]"
+    _reset="\[$(tput sgr0)\]"
   else
     unset GIT_PS1_SHOWCOLORHINTS
-
-    _black=""
-    _red=""
-    _green=""
-    _yellow=""
-    _blue=""
-    _magenta=""
-    _cyan=""
-    _white=""
-    _bold=""
-    _reset=""
   fi
 
   # {{{ Set up pre_ps1
@@ -109,9 +120,9 @@ function __set_ps1() {
   local local_format="${_green}%s${_reset}"  # Format for local connection
   local child_format="${_yellow}%s${_reset}" # Format for child shell
 
-  local ssh_icon="σ "   # Icon for ssh connection
-  local local_icon="λ " # Icon for local connection
-  local child_icon="β " # Icon for child shell
+  local ssh_icon='σ '   # Icon for ssh connection
+  local local_icon='λ ' # Icon for local connection
+  local child_icon='β ' # Icon for child shell
 
   # If root, use upper-case letter
   # Also bold red (for ssh/local icon) and bold yellow (for child icon)
@@ -120,18 +131,22 @@ function __set_ps1() {
     local_format="${_bold}${_red}%s${_reset}"
     child_format="${_bold}${_yellow}%s${_reset}"
 
-    ssh_icon="Σ "
-    local_icon="Λ "
-    child_icon="Β "
+    ssh_icon='Σ '
+    local_icon='Λ '
+    child_icon='Β '
   fi
 
-  local ssh_ps1=$(__ssh_ps1  "${ssh_icon}" "${local_icon}" "${ssh_format}" "${local_format}")
-  local child_ps1=$(__child_ps1 "${child_icon}" "${child_format}")
+  local ssh_ps1
+  local child_ps1
 
-  local pre_ps1="${ssh_ps1}${child_ps1}"
+  ssh_ps1=$(__ssh_ps1  "${ssh_icon}" "${local_icon}" "${ssh_format}" "${local_format}")
+  child_ps1=$(__child_ps1 "${child_icon}" "${child_format}")
 
-  # If root, only use bold hostname
-  # Otherwise, use <user>@<hostname>
+  local pre_ps1
+  pre_ps1="${ssh_ps1}${child_ps1}"
+
+  # If root, only use bold <hostname>:
+  # Otherwise, use <user>@<hostname>:
   if [[ ${EUID} -eq 0 ]] ; then
     pre_ps1+="${_bold}\h${_reset}:"
   else
@@ -142,7 +157,8 @@ function __set_ps1() {
   # }}}
 
   # {{{ Set up post_ps1
-  local post_ps1=""
+  local post_ps1
+  post_ps1=""
 
   # If nonzero exit code, display it in red
   if [[ ${exit} -ne 0 ]] ; then
@@ -152,10 +168,10 @@ function __set_ps1() {
   post_ps1+=" "
   # }}}
 
-  __git_ps1 "${pre_ps1}" "${post_ps1}" "(%s)"
+  __git_ps1 "${pre_ps1}" "${post_ps1}" '(%s)'
 }
 # }}}
 
 export PROMPT_COMMAND=__set_ps1
 
-# vim: fdm=marker
+# vim: fdm=marker ft=bash
