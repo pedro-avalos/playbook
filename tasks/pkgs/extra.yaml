@@ -46,6 +46,9 @@
       - python-tmuxp
       - "{{ python_nvim }}"
 
+      - ShellCheck
+      - htop
+      - bpytop
       - tmux
       - fzf
       - gawk
