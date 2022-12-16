@@ -49,6 +49,7 @@
       - tmux
       - fzf
       - gawk
+      - bat
       - sed
       - ripgrep
       - "{{ fd_find }}"
