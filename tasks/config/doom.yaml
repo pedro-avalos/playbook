@@ -36,7 +36,6 @@
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
-    - user
     - configuration
 
 # vim: fdm=marker
