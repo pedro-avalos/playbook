@@ -116,34 +116,33 @@ function __set_ps1() {
   fi
 
   # {{{ Set up pre_ps1
-  local ssh_format="${_cyan}%s${_reset}"     # Format for ssh connection
-  local local_format="${_green}%s${_reset}"  # Format for local connection
-  local child_format="${_yellow}%s${_reset}" # Format for child shell
-
-  local ssh_icon='σ '   # Icon for ssh connection
-  local local_icon='λ ' # Icon for local connection
-  local child_icon='β ' # Icon for child shell
+  local ssh_icon=''   # Icon for ssh connection
+  local local_icon='' # Icon for local connection
+  local child_icon='' # Icon for child shell
 
   # If root, use upper-case letter
   # Also bold red (for ssh/local icon) and bold yellow (for child icon)
   if [[ ${EUID} -eq 0 ]] ; then
-    ssh_format="${_bold}${_red}%s${_reset}"
-    local_format="${_bold}${_red}%s${_reset}"
-    child_format="${_bold}${_yellow}%s${_reset}"
-
-    ssh_icon='Σ '
-    local_icon='Λ '
-    child_icon='Β '
+    ssh_icon+="${_bold}${_red}Σ"
+    local_icon+="${_bold}${_red}Λ"
+    child_icon+="${_bold}${_yellow}Β"
+  else
+    ssh_icon+="${_cyan}σ"
+    local_icon+="${_green}λ"
+    child_icon+="${_yellow}β"
   fi
+
+  ssh_icon+="${_reset} "
+  local_icon+="${_reset} "
+  child_icon+="${_reset} "
 
   local ssh_ps1
   local child_ps1
 
-  ssh_ps1=$(__ssh_ps1  "${ssh_icon}" "${local_icon}" "${ssh_format}" "${local_format}")
-  child_ps1=$(__child_ps1 "${child_icon}" "${child_format}")
+  ssh_ps1=$(__ssh_ps1  "${ssh_icon}" "${local_icon}")
+  child_ps1=$(__child_ps1 "${child_icon}")
 
-  local pre_ps1
-  pre_ps1="${ssh_ps1}${child_ps1}"
+  local pre_ps1="${ssh_ps1}${child_ps1}"
 
   # If root, only use bold <hostname>:
   # Otherwise, use <user>@<hostname>:
@@ -158,14 +157,14 @@ function __set_ps1() {
 
   # {{{ Set up post_ps1
   local post_ps1
-  post_ps1=""
+  post_ps1=''
 
   # If nonzero exit code, display it in red
   if [[ ${exit} -ne 0 ]] ; then
     post_ps1+="${_red}[${exit}]${_reset}"
   fi
 
-  post_ps1+=" "
+  post_ps1+=' '
   # }}}
 
   __git_ps1 "${pre_ps1}" "${post_ps1}" '(%s)'
