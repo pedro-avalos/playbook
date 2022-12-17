@@ -21,7 +21,7 @@
       - overpass-fonts
       - terminus-fonts
       - powerline-fonts
-    state: latest
+    state: present
   become: true
   become_user: root
   tags:

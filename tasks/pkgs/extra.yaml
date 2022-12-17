@@ -59,7 +59,7 @@
       - ripgrep
       - "{{ fd_find }}"
       - libtree-sitter
-    state: latest
+    state: present
   become: true
   become_user: root
   tags:

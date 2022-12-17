@@ -6,7 +6,7 @@
       ansible.builtin.dnf:
         name:
           - flatpak
-        state: latest
+        state: present
       become: true
       become_user: root
 

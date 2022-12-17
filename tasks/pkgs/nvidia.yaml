@@ -5,7 +5,7 @@
     name:
       - akmod-nvidia
       - xorg-x11-drv-nvidia-cuda
-    state: latest
+    state: present
   when: ansible_use_nvidia == true
   become: true
   become_user: root
