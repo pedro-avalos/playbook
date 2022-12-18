@@ -2,20 +2,26 @@
 
 - name: Set up tmux configuration
   block:
+    # {{{ Ensure directories exist
     - name: Ensure tmux directory exists
       ansible.builtin.file:
         path: "/home/{{ ansible_user_id }}/.config/tmux"
-        mode: '0755'
+        mode: '0700'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
+    # }}}
 
+    # {{{ Copy configuration files
     - name: Copy tmux configuration files and tmuxp files
       ansible.builtin.copy:
         src: files/config/tmux/
         dest: "/home/{{ ansible_user_id }}/.config/tmux/"
+        mode: '0600'
+        directory_mode: '0700'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
+      # }}}
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
