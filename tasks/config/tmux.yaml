@@ -21,7 +21,7 @@
         directory_mode: '0700'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
-      # }}}
+    # }}}
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
