@@ -41,7 +41,7 @@
           dest: "/home/{{ ansible_user_id }}/.vim/config"
         - src: "/home/{{ ansible_user_id }}/.config/nvim/coc-settings.json"
           dest: "/home/{{ ansible_user_id }}/.vim/coc-settings.json"
-      # }}}
+    # }}}
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
