@@ -3,51 +3,21 @@
 - name: Install extra packages
   ansible.builtin.dnf:
     name:
+      # {{{ Gnome & GTK
       - dconf
       - gnome-tweaks
+      # }}}
 
+      # {{{ GUI Applications
       - 1password
       - firefox
       - brave-browser
       - steam
+      - libreoffice
+      # }}}
 
-      - ShellCheck
-      - bash
-      - bash-completion
-      - bash-devel
-      - zsh
-      - fish
-
-      - vim
-      - neovim
-      - emacs
-      - code
-
-      - texlive-scheme-full
-
-      - llvm
-      - clang
-      - clang-devel
-
-      - java-latest-openjdk
-      - java-latest-openjdk-devel
-
-      - nodejs
-      - nodejs-devel
-      - npm
-
-      - ruby
-      - ruby-devel
-
-      - python
-      - python-devel
-      - python-flake8
-      - python-black
-      - python-isort
-      - python-psutil
-      - python-tmuxp
-      - "{{ python_nvim }}"
-
+      # {{{ CLI Tools
+      - 1password-cli
       - htop
       - bpytop
       - tmux
@@ -59,8 +29,66 @@
       - ripgrep
       - "{{ fd_find }}"
       - libtree-sitter
+      # }}}
+
+      # {{{ Shells
+      - ShellCheck
+      - bash
+      - bash-completion
+      - bash-devel
+      - zsh
+      - fish
+      # }}}
+
+      # {{{ Technical Writing
+      - texlive-scheme-full
+      # }}}
+
+      # {{{ Development
+      # {{{ Editors & IDEs
+      - vim
+      - neovim
+      - emacs
+      - code
+      # }}}
+
+      # {{{ C/C++
+      - llvm
+      - clang
+      - clang-devel
+      # }}}
+
+      # {{{ Java
+      - java-latest-openjdk
+      - java-latest-openjdk-devel
+      # }}}
+
+      # {{{ JavaScript
+      - nodejs
+      - nodejs-devel
+      - npm
+      # }}}
+
+      # {{{ Ruby
+      - ruby
+      - ruby-devel
+      # }}}
+
+      # {{{ Python
+      - python
+      - python-devel
+      - python-flake8
+      - python-black
+      - python-isort
+      - python-psutil
+      - python-tmuxp
+      - "{{ python_nvim }}"
+      # }}}
+      # }}}
     state: present
   become: true
   become_user: root
   tags:
     - packages
+
+# vim: fdm=marker
