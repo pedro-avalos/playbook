@@ -12,11 +12,11 @@
         update: no
     # }}}
 
-    # {{{ Ensure directories exist
+    # {{{ Ensure Doom Emacs directories exist
     - name: Ensure "~/.doom.d" and "~/org" directories exist
       ansible.builtin.file:
         path: "{{ item.path }}"
-        mode: '0744'
+        mode: '0774'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
@@ -30,6 +30,8 @@
       ansible.builtin.copy:
         src: files/doom.d/
         dest: "/home/{{ ansible_user_id }}/.doom.d/"
+        mode: '0664'
+        directory_mode: '0774'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
     # }}}

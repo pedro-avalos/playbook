@@ -1,6 +1,6 @@
 ---
 
-- name: Copy dnf.conf
+- name: Copy "dnf.conf"
   ansible.builtin.copy:
     src: files/dnf.conf
     dest: /etc/dnf/dnf.conf

@@ -2,7 +2,7 @@
 
 - name: Configure bash
   block:
-    # {{{ Ensure "~/.bashrc.d" directory exists
+    # {{{ Ensure directories exist
     - name: Ensure "~/.bashrc.d" directory exists
       ansible.builtin.file:
         path: "{{ outer_item.home_path }}/.bashrc.d"
@@ -14,7 +14,7 @@
       become_user: "{{ outer_item.become_user }}"
     # }}}
 
-    # {{{ Copy bash configuration files
+    # {{{ Copy configuration files
     - name: Copy bash configuration files
       ansible.builtin.copy:
         src: "{{ item.src }}"
@@ -36,13 +36,18 @@
       become_user: "{{ outer_item.become_user }}"
     # }}}
 
-    # {{{ Symlink "git-prompt.sh"
+    # {{{ Symlink bash helper files
     - name: Symlink "git-prompt.sh"
       ansible.builtin.file:
-        src: /usr/share/git-core/contrib/completion/git-prompt.sh
-        dest: "{{ outer_item.home_path }}/.bashrc.d/git-prompt.sh"
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
         state: link
         force: true
+      loop:
+        - src: /usr/share/git-core/contrib/completion/git-prompt.sh
+          dest: "{{ outer_item.home_path }}/.bashrc.d/git-prompt.sh"
+        - src: /etc/profile.d/vte.sh
+          dest: "{{ outer_item.home_path }}/.bashrc.d/vte.sh"
       become: true
       become_user: "{{ outer_item.become_user }}"
     # }}}

@@ -8,6 +8,7 @@ alias diff='nvim -d'
 alias ls='ls --color=auto -F'
 alias la='ls --color=auto -a'
 alias ll='ls --color=auto -lh -a'
+alias l='ls --color=auto -lh'
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

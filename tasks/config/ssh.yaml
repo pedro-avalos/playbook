@@ -2,6 +2,7 @@
 
 - name: Set up ssh configuration
   block:
+    # {{{ Ensure directories exist
     - name: Ensure "~/.ssh" directory exists
       ansible.builtin.file:
         path: "/home/{{ ansible_user_id }}/.ssh"
@@ -9,14 +10,17 @@
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
         state: directory
+    # }}}
 
-    - name: Copy ssh config
+    # {{{ Copy configuration
+    - name: Copy ssh configuration
       ansible.builtin.copy:
         src: files/ssh/config
         dest: "/home/{{ ansible_user_id }}/.ssh/config"
-        mode: '0400'
+        mode: '0600'
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
+    # }}}
   become: true
   become_user: "{{ ansible_user_id }}"
   tags:
