@@ -1,0 +1,13 @@
+---
+
+- name: Copy pacman.conf
+  when: ansible_distribution == "ArchLinux"
+  become: true
+  ansible.builtin.copy:
+    src: pacman.conf
+    dest: "{{ pacman_conf }}"
+    mode: '0644'
+    owner: root
+    group: root
+
+# vim: ft=yaml.ansible

@@ -1,0 +1,6 @@
+---
+
+- import_tasks: configure.yaml
+- import_tasks: hooks.yaml
+
+# vim: ft=yaml.ansible

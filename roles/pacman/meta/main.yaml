@@ -1,0 +1,16 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: Pedro Avalos
+  description: Configure pacman
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags: []
+
+# vim: ft=yaml.ansible

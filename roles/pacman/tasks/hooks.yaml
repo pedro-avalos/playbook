@@ -1,0 +1,24 @@
+---
+
+- name: Ensure hooks directory exists
+  when: ansible_distribution == "ArchLinux"
+  become: true
+  ansible.builtin.file:
+    path: "{{ hooks_dir }}"
+    mode: '0744'
+    owner: root
+    group: root
+    state: directory
+
+- name: Copy hooks
+  when: ansible_distribution == "ArchLinux"
+  become: true
+  ansible.builtin.copy:
+    src: hooks/
+    dest: "{{ hooks_dir }}/"
+    mode: '0644'
+    directory_mode: '0744'
+    owner: root
+    group: root
+
+# vim: ft=yaml.ansible
