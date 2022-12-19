@@ -1,0 +1,9 @@
+---
+
+- name: Remove unused dependencies
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.dnf:
+    autoremove: true
+
+# vim: ft=yaml.ansible

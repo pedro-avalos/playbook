@@ -1,0 +1,13 @@
+---
+
+- name: Copy dnf.conf
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.copy:
+    src: dnf.conf
+    dest: "{{ dnf_conf }}"
+    mode: '0644'
+    owner: root
+    group: root
+
+# vim: ft=yaml.ansible

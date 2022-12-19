@@ -1,0 +1,18 @@
+---
+
+# {{{ bash
+git_prompt_sh: "/usr/share/git-core/contrib/completion/git-prompt.sh"
+vte_sh: "/etc/profile.d/vte.sh"
+
+root_bashrc: "/root/.bashrc"
+root_bash_profile: "/root/.bash_profile"
+root_bash_logout: "/root/.bash_logout"
+root_bashrc_d_dir: "/root/.bashrc.d"
+
+bashrc: "{{ ansible_env.HOME }}/.bashrc"
+bash_profile: "{{ ansible_env.HOME }}/.bash_profile"
+bash_logout: "{{ ansible_env.HOME }}/.bash_logout"
+bashrc_d_dir: "{{ ansible_env.HOME }}/.bashrc.d"
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

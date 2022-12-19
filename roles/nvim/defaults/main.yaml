@@ -1,0 +1,5 @@
+---
+
+vimwiki_dir: "{{ ansible_env.HOME }}/vimwiki"
+
+# vim: ft=yaml.ansible

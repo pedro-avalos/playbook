@@ -1,0 +1,9 @@
+---
+
+git_username: "pavalos6401"
+git_email: "pavalos6401@gmail.com"
+git_editor: "nvim"
+git_default_branch: "main"
+git_gpgsign: "true"
+
+# vim: ft=yaml.ansible

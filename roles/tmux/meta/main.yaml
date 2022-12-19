@@ -1,0 +1,16 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: Pedro Avalos
+  description: Configure tmux
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags: []
+
+# vim: ft=yaml.ansible

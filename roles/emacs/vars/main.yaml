@@ -1,0 +1,7 @@
+---
+
+doom_repo: "https://github.com/doomemacs/doomemacs"
+emacs_d_dir: "{{ ansible_env.HOME }}/.emacs.d"
+doom_d_dir: "{{ ansible_env.HOME }}/.doom.d"
+
+# vim: ft=yaml.ansible

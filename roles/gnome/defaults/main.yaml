@@ -1,0 +1,11 @@
+---
+
+dconf_settings:
+  - key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Adwaita-dark'"
+  - key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+  - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+
+# vim: ft=yaml.ansible

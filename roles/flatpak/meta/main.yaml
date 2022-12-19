@@ -1,0 +1,16 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: Pedro Avalos
+  description: Set up flatpak and flathub
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags: []
+
+# vim: ft=yaml.ansible
