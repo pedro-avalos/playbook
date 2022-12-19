@@ -4,10 +4,16 @@ dependencies: []
 
 galaxy_info:
   author: Pedro Avalos
-  description: Configure emacs
+  description: Install and configure emacs
 
   platforms:
     - name: Fedora
+      versions:
+        - all
+    - name: OpenSuse
+      versions:
+        - all
+    - name: ArchLinux
       versions:
         - all
 

@@ -1,7 +1,7 @@
 ---
 
 - name: Copy dnf.conf
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts["distribution"] == "Fedora"
   become: true
   ansible.builtin.copy:
     src: dnf.conf

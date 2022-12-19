@@ -5,7 +5,7 @@
   gather_facts: true
 
   vars_files:
-    - "vars/{{ ansible_distribution }}.yaml"
+    - "vars/{{ ansible_facts['distribution'] }}.yaml"
 
   roles:
     - role: repositories

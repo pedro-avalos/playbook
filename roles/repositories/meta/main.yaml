@@ -4,10 +4,13 @@ dependencies: []
 
 galaxy_info:
   author: Pedro Avalos
-  description: Set up repositories
+  description: Set up external repositories
 
   platforms:
     - name: Fedora
+      versions:
+        - all
+    - name: OpenSuse
       versions:
         - all
 

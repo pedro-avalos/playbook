@@ -4,10 +4,16 @@ dependencies: []
 
 galaxy_info:
   author: Pedro Avalos
-  description: Set up flatpak and flathub
+  description: Install flatpak, set up flathub, and install desired packages
 
   platforms:
     - name: Fedora
+      versions:
+        - all
+    - name: OpenSuse
+      versions:
+        - all
+    - name: ArchLinux
       versions:
         - all
 

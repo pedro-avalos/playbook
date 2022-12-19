@@ -7,10 +7,16 @@
       - "{{ shellcheck }}"
       - bash
       - bash-completion
-      - bash-devel
       - zsh
       - fish
     state: present
-    
+
+- name: Install Fedora development shell packages
+  when: ansible_facts['distribution'] == "Fedora"
+  become: true
+  ansible.builtin.package:
+    name:
+      - bash-devel
+    state: present
 
 # vim: ft=yaml.ansible
