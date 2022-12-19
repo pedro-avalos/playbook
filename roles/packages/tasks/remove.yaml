@@ -1,0 +1,10 @@
+---
+
+- name: Remove unwanted packages
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ unwanted_pkgs }}"
+    state: absent
+
+# vim: ft=yaml.ansible

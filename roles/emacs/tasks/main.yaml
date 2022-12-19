@@ -1,0 +1,33 @@
+---
+
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    name: git
+    state: present
+
+- name: Clone Doom Emacs repository
+  ansible.builtin.git:
+    depth: 1
+    repo: "{{ doom_repo }}"
+    dest: "{{ emacs_d_dir }}"
+    clone: yes
+    update: no
+
+- name: Ensure directories exist
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    mode: '0744'
+    state: directory
+  loop:
+    - path: "{{ doom_d_dir }}"
+    - path: "{{ org_dir }}"
+
+- name: Copy configuration files
+  ansible.builtin.copy:
+    src: doom.d/
+    dest: "{{ doom_d_dir }}/"
+    mode: '0644'
+    directory_mode: '0744'
+
+# vim: ft=yaml.ansible

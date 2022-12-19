@@ -1,0 +1,10 @@
+---
+
+- name: Install group packages
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ group_pkgs }}"
+    state: present
+
+# vim: ft=yaml.ansible

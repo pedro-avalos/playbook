@@ -1,0 +1,7 @@
+---
+
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ hostname }}"
+
+# vim: ft=yaml.ansible

@@ -1,0 +1,9 @@
+---
+
+- name: Install extra packages
+  become: true
+  ansible.builtin.package:
+    name: "{{ extra_pkgs }}"
+    state: present
+
+# vim: ft=yaml.ansible

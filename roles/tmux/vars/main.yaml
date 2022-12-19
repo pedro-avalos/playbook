@@ -1,0 +1,6 @@
+---
+
+tmux_dir: "{{ ansible_env.HOME }}/.config/tmux"
+tmuxp_dir: "{{ ansible_env.HOME }}/.config/tmuxp"
+
+# vim: ft=yaml.ansible

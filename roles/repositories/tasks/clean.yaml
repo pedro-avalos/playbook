@@ -1,0 +1,12 @@
+---
+
+- name: Remove unwanted repos
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.yum_repository:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ unwanted_repos }}"
+  notify: yum-clean-metadata
+
+# vim: ft=yaml.ansible

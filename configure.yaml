@@ -1,14 +1,10 @@
 ---
 
-- name: Set up Linux post-install
+- name: Configure Linux and apply dotfiles
   hosts: all
   gather_facts: true
 
   roles:
-    - role: system
-    - role: repositories
-    - role: packages
-    - role: flatpak
     - role: dnf
     - role: git
     - role: emacs

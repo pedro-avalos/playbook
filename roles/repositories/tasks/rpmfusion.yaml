@@ -1,0 +1,16 @@
+---
+
+- name: Add rpmfusion repositories
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    metalink: "{{ item.metalink }}"
+    metadata_expire: "{{ item.metadata_expire }}"
+    gpgkey: "{{ item.gpgkey }}"
+    gpgcheck: true
+    enabled: true
+  loop: "{{ rpmfusion_repos }}"
+
+# vim: ft=yaml.ansible

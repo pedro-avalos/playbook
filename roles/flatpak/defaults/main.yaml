@@ -1,0 +1,7 @@
+---
+
+flatpak_apps:
+  - com.discordapp.Discord
+  - com.spotify.Client
+
+# vim: ft=yaml.ansible
