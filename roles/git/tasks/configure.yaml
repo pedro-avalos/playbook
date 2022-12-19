@@ -5,21 +5,8 @@
     name: "{{ item.name }}"
     scope: "{{ item.scope }}"
     value: "{{ item.value }}"
-  loop:
-    - name: user.name
-      scope: global
-      value: "{{ git_username }}"
-    - name: user.email
-      scope: global
-      value: "{{ git_email }}"
-    - name: core.editor
-      scope: global
-      value: "{{ git_editor }}"
-    - name: init.defaultBranch
-      scope: global
-      value: "{{ git_default_branch }}"
-    - name: commit.gpgsign
-      scope: global
-      value: "{{ git_gpgsign }}"
+  loop: "{{ git_configuration }}"
+  loop_control:
+    label: "{{ item.name }}"
 
 # vim: ft=yaml.ansible

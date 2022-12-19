@@ -1,5 +1,11 @@
 ---
 
+emacs_packages:
+  - emacs
+  - git
+  - "{{ fd_find }}"
+  - ripgrep
+
 org_dir: "{{ ansible_env.HOME }}/org"
 
 # vim: ft=yaml.ansible

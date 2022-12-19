@@ -1,42 +1,32 @@
 ---
 
-# {{{ rpmfusion_repos
-rpmfusion_repos:
-  # {{{ Free
+rpmfusion_repositories:
   - name: rpmfusion-free
     description: RPM Fusion for Fedora $releasever - Free
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
     metadata_expire: 1209600 # 14 days in seconds
     gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
     key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
-  # }}}
 
-  # {{{ Free - Updates
   - name: rpmfusion-free-updates
     description: RPM Fusion for Fedora $releasever - Free - Updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-$releasever&arch=$basearch
     metadata_expire: 21600 # 6 hours in seconds
     gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
     key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
-  # }}}
 
-  # {{{ Nonfree
   - name: rpmfusion-nonfree
     description: RPM Fusion for Fedora $releasever - Nonfree
     metalink: https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-$releasever&arch=$basearch
     metadata_expire: 1209600 # 14 days in seconds
     gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
     key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
-  # }}}
 
-  # {{{ Nonfree - Updates
   - name: rpmfusion-nonfree-updates
     description: RPM Fusion for Fedora $releasever - Nonfree - Updates
     metalink: https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-updates-released-$releasever&arch=$basearch
     metadata_expire: 21600 # 6 hours in seconds
     gpgkey: file://etc/pki-rpm-gpg/RPM-GPG-KEY-rpmfusion-nonfree-fedora-$releasever
     key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
-  # }}}
-# }}}
 
-# vim: fdm=marker ft=yaml.ansible
+# vim: ft=yaml.ansible

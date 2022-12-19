@@ -1,29 +1,35 @@
 ---
 
 - name: Add miscellaneous repositories
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts['distribution'] == "Fedora"
   become: true
   ansible.builtin.yum_repository:
-    name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    baseurl: "{{ item.baseurl }}"
-    skip_if_unavailable: "{{ item.skip_if_unavailable }}"
-    gpgkey: "{{ item.gpgkey }}"
+    name: "{{ repo.name }}"
+    description: "{{ repo.description }}"
+    baseurl: "{{ repo.baseurl }}"
+    skip_if_unavailable: "{{ repo.skip_if_unavailable }}"
+    gpgkey: "{{ repo.gpgkey }}"
     gpgcheck: true
     enabled: true
     state: present
-  loop: "{{ misc_repos }}"
+  loop: "{{ misc_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.description }}"
 
 - name: Add miscellaneous repositories
-  when: ansible_distribution == "OpenSuse"
+  when: ansible_facts['distribution'] == "OpenSuse"
   become: true
   community.general.zypper_repository:
-    name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    repo: "{{ item.baseurl }}"
+    name: "{{ repo.name }}"
+    description: "{{ repo.description }}"
+    repo: "{{ repo.baseurl }}"
     auto_import_keys: true
     enabled: true
     state: present
-  loop: "{{ misc_repos }}"
+  loop: "{{ misc_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.description }}"
 
 # vim: ft=yaml.ansible

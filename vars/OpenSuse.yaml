@@ -1,13 +1,78 @@
 ---
 
-adobe_source_code_pro_fonts: "adobe-sourcecodepro-fonts"
-dejavu_fonts: "dejavu-fonts"
-fd_find: "fd"
-firefox: "MozillaFirefox"
-libreoffice: "libreoffice"
-libtree_sitter: "tree-sitter"
-python_nvim: "python-neovim"
-shellcheck: "ShellCheck"
-tmuxp: None
+# {{{ Package names
+fd_find: fd
+firefox: MozillaFirefox
+java_jdk: java-openjdk
+python_neovim: python3-neovim
+tree_sitter: tree-sitter
+# }}}
 
-# vim: ft=yaml.ansible
+# {{{ Role: development
+c_packages:
+  - clang
+  - clang-devel
+
+java_packages:
+  - java-19-openjdk
+  - java-19-openjdk-devel
+
+python_packages:
+  - python3
+  - python3-pip
+  - python3-devel
+  - python3-flake8
+  - python3-black
+  - python3-isort
+
+ruby_packages:
+  - ruby
+  - ruby-devel
+# }}}
+
+# {{{ Role: shell
+shell_packages:
+  - ShellCheck
+  - bash
+  - bash-devel
+  - bash-completion
+  - zsh
+  - fish
+  - 1password-cli
+  - htop
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
+# }}}
+
+# {{{ Role: tmux
+tmux_packages:
+  - tmux
+# }}}
+
+# {{{ Role: packages
+extra_packages:
+  - code
+  - 1password
+  - firefox
+  - brave-browser
+  - steam
+  - libreoffice
+  - texlive-scheme-full
+
+font_packages:
+  - adobe-sourcecodepro-fonts
+  - dejavu-fonts
+  - gnu-free-fonts
+  - google-inconsolata-fonts
+  - liberation-fonts
+  - fira-code-fonts
+  - fira-fonts
+  - google-anonymouspro-fonts
+  - terminus-ttf-fonts
+  - powerline-fonts
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

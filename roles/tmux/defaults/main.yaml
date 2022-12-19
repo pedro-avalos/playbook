@@ -1,5 +1,6 @@
 ---
 
-dnf_conf: /etc/dnf/dnf.conf
+tmux_packages:
+  - tmux
 
 # vim: ft=yaml.ansible

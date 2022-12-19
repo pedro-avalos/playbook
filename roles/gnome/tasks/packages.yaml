@@ -1,9 +1,9 @@
 ---
 
-- name: Install neovim packages
+- name: Install packages
   become: true
   ansible.builtin.package:
-    name: "{{ neovim_packages }}"
+    name: "{{ gnome_packages }}"
     state: present
 
 # vim: ft=yaml.ansible

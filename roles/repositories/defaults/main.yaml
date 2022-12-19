@@ -1,53 +1,7 @@
 ---
 
-# {{{ misc_repos
-misc_repos:
-  # {{{ 1Password
-  - name: 1password
-    description: 1Password
-    baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
-    skip_if_unavailable: false
-    gpgkey: https://downloads.1password.com/linux/keys/1password.asc
-    key: https://downloads.1password.com/linux/keys/1password.asc
-  # }}}
+copr_repositories: []
+misc_repositories: []
+unwanted_repositories: []
 
-  # {{{ Brave Browser
-  - name: brave-browser
-    description: Brave Browser Release Channel
-    baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
-    skip_if_unavailable: true
-    gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-  # }}}
-
-  # {{{ Visual Studio Code
-  - name: vscode
-    description: Visual Studio Code
-    baseurl: https://packages.microsoft.com/yumrepos/vscode
-    skip_if_unavailable: true
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-    key: https://packages.microsoft.com/keys/microsoft.asc
-  # }}}
-
-  # {{{ Microsoft Teams
-  - name: ms-teams
-    description: Microsoft Teams
-    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
-    skip_if_unavailable: true
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-    key: https://packages.microsoft.com/keys/microsoft.asc
-  # }}}
-# }}}
-
-# {{{ copr_repos
-copr_repos:
-  - host: copr.fedorainfracloud.org
-    name: yuezk/globalprotect-openconnect
-# }}}
-
-# {{{ unwanted_repos
-unwanted_repos:
-  - name: teams
-# }}}
-
-# vim: fdm=marker ft=yaml.ansible
+# vim: ft=yaml.ansible

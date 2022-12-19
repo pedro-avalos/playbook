@@ -1,7 +1,10 @@
 ---
 
-flatpak_apps:
-  - com.discordapp.Discord
-  - com.spotify.Client
+flatpak_apps: []
+
+flatpak_dependencies:
+  - flatpak
+  - xdg-desktop-portal
+  - xdg-desktop-portal-gtk
 
 # vim: ft=yaml.ansible

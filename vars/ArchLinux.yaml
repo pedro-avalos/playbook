@@ -1,13 +1,84 @@
 ---
 
-adobe_source_code_pro_fonts: "adobe-source-code-pro-fonts"
-dejavu_fonts: "ttf-dejavu"
-fd_find: "fd"
-firefox: "firefox"
-libreoffice: "libreoffice-fresh"
-libtree_sitter: "tree-sitter"
-python_nvim: "python-neovim"
-shellcheck: "shellcheck"
-tmuxp: "tmuxp"
+# {{{ Package names
+fd_find: fd
+python_neovim: python-neovim
+tree_sitter: tree-sitter
+# }}}
 
-# vim: ft=yaml.ansible
+# {{{ Role: development
+c_packages:
+  - clang
+
+java_packages:
+  - jdk-openjdk
+  - jre-openjdk
+
+python_packages:
+  - python
+  - python-pip
+  - flake8
+  - python-black
+  - python-isort
+
+ruby_packages:
+  - ruby
+# }}}
+
+# {{{ Role: shell
+shell_packages:
+  - shellcheck
+  - bash
+  - bash-completion
+  - zsh
+  - fish
+  - htop
+  - bpytop
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
+# }}}
+
+# {{{ Role: tmux
+tmux_packages:
+  - tmux
+  - tmuxp
+# }}}
+
+# Split `extra_packages` into `extra_packages` from the official repositories
+# and `aur_packages` for extra packages found on the AUR
+
+# {{{ Role: packages
+extra_packages:
+  - firefox
+  - steam
+  - libreoffice-fresh
+  - texlive-most
+
+font_packages:
+  - adobe-source-code-pro-fonts
+  - ttf-dejavu
+  - gnu-free-fonts
+  - ttf-inconsolata
+  - ttf-liberation
+  - ttf-fira-code
+  - ttf-fira-mono
+  - ttf-fira-sans
+  - ttf-anonymous-pro
+  - ttf-overpass
+  - terminus-font
+  - powerline-fonts
+# }}}
+
+# {{{ Role: aur
+aur_packages:
+  - 1password
+  - 1password-cli
+  - brave-bin
+  - visual-studio-code-bin
+  - teams
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

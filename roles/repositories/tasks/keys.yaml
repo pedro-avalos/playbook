@@ -1,19 +1,14 @@
 ---
 
-- name: Import rpmfusion keys
+- name: Import rpm keys
   when: ansible_distribution == "Fedora"
   become: true
   ansible.builtin.rpm_key:
-    key: "{{ item.key }}"
+    key: "{{ repo.key }}"
     state: present
-  loop: "{{ rpmfusion_repos }}"
-
-- name: Import miscellaneous keys
-  when: ansible_distribution == "Fedora"
-  become: true
-  ansible.builtin.rpm_key:
-    key: "{{ item.key }}"
-    state: present
-  loop: "{{ misc_repos }}"
+  loop: "{{ rpmfusion_repositories + misc_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.key }}"
 
 # vim: ft=yaml.ansible

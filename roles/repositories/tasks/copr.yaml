@@ -1,12 +1,15 @@
 ---
 
-- name: Enable copr repos
+- name: Enable copr repositories
   when: ansible_distribution == "Fedora"
   become: true
   community.general.copr:
-    host: "{{ item.host }}"
-    name: "{{ item.name }}"
+    host: "{{ repo.host }}"
+    name: "{{ repo.name }}"
     state: enabled
-  loop: "{{ copr_repos }}"
+  loop: "{{ copr_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.name }}"
 
 # vim: ft=yaml.ansible

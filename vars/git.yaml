@@ -1,0 +1,20 @@
+---
+
+git_configuration:
+  - name: user.name
+    scope: global
+    value: pavalos6401
+  - name: user.email
+    scope: global
+    value: pavalos6401@gmail.com
+  - name: core.editor
+    scope: global
+    value: nvim
+  - name: init.defaultBranch
+    scope: global
+    value: main
+  - name: commit.gpgsign
+    scope: global
+    value: true
+
+# vim: ft=yaml.ansible

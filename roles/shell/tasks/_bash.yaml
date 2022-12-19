@@ -1,43 +1,47 @@
 ---
 
 - name: Ensure bash directories exist
-  become: "{{ outer_item.become }}"
+  become: "{{ bash_configuration.become }}"
   ansible.builtin.file:
-    path: "{{ outer_item.bashrc_d_dir }}"
-    mode: "{{ outer_item.directory_mode }}"
-    owner: "{{ outer_item.owner }}"
-    group: "{{ outer_item.owner }}"
+    path: "{{ bash_configuration.bashrc_d_dir }}"
+    mode: "{{ bash_configuration.directory_mode }}"
+    owner: "{{ bash_configuration.owner }}"
+    group: "{{ bash_configuration.owner }}"
     state: directory
 
 - name: Copy bash configuration files
-  become: "{{ outer_item.become }}"
+  become: "{{ bash_configuration.become }}"
   ansible.builtin.copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: "{{ outer_item.mode }}"
-    directory_mode: "{{ outer_item.directory_mode }}"
-    owner: "{{ outer_item.owner }}"
-    group: "{{ outer_item.owner }}"
+    mode: "{{ bash_configuration.mode }}"
+    directory_mode: "{{ bash_configuration.directory_mode }}"
+    owner: "{{ bash_configuration.owner }}"
+    group: "{{ bash_configuration.owner }}"
   loop:
     - src: bashrc
-      dest: "{{ outer_item.bashrc }}"
+      dest: "{{ bash_configuration.bashrc }}"
     - src: bash_profile
-      dest: "{{ outer_item.bash_profile }}"
+      dest: "{{ bash_configuration.bash_profile }}"
     - src: bash_logout
-      dest: "{{ outer_item.bash_logout }}"
+      dest: "{{ bash_configuration.bash_logout }}"
     - src: bashrc.d/
-      dest: "{{ outer_item.bashrc_d_dir }}/"
+      dest: "{{ bash_configuration.bashrc_d_dir }}/"
+  loop_control:
+    label: "{{ item.src }}"
 
 - name: Symlink helper files
-  become: "{{ outer_item.become }}"
+  become: "{{ bash_configuration.become }}"
   ansible.builtin.file:
     src: "{{ item.src }}"
-    dest: "{{ outer_item.bashrc_d_dir }}/{{ item.name }}"
+    dest: "{{ bash_configuration.bashrc_d_dir }}/{{ item.name }}"
     state: link
   loop:
     - src: "{{ git_prompt_sh }}"
       name: "git-prompt.sh"
     - src: "{{ vte_sh }}"
       name: "vte.sh"
+  loop_control:
+    label: "{{ item.name }}"
 
 # vim: ft=yaml.ansible

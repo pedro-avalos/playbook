@@ -4,13 +4,16 @@
   when: ansible_distribution == "Fedora"
   become: true
   ansible.builtin.yum_repository:
-    name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    metalink: "{{ item.metalink }}"
-    metadata_expire: "{{ item.metadata_expire }}"
-    gpgkey: "{{ item.gpgkey }}"
+    name: "{{ repo.name }}"
+    description: "{{ repo.description }}"
+    metalink: "{{ repo.metalink }}"
+    metadata_expire: "{{ repo.metadata_expire }}"
+    gpgkey: "{{ repo.gpgkey }}"
     gpgcheck: true
     enabled: true
-  loop: "{{ rpmfusion_repos }}"
+  loop: "{{ rpmfusion_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.description }}"
 
 # vim: ft=yaml.ansible

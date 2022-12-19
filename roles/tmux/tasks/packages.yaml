@@ -1,16 +1,9 @@
 ---
 
-- name: Install tmux
+- name: Install tmux packages
   become: true
   ansible.builtin.package:
-    name: tmux
-    state: present
-
-- name: Install tmuxp through package manager
-  when: ansible_facts["distribution"] != "OpenSuse"
-  become: true
-  ansible.builtin.package:
-    name: "{{ tmuxp }}"
+    name: "{{ tmux_packages }}"
     state: present
 
 - name: Install tmuxp through pip

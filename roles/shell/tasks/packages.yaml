@@ -3,20 +3,7 @@
 - name: Install shell packages
   become: true
   ansible.builtin.package:
-    name:
-      - "{{ shellcheck }}"
-      - bash
-      - bash-completion
-      - zsh
-      - fish
-    state: present
-
-- name: Install Fedora development shell packages
-  when: ansible_facts['distribution'] == "Fedora"
-  become: true
-  ansible.builtin.package:
-    name:
-      - bash-devel
+    name: "{{ shell_packages }}"
     state: present
 
 # vim: ft=yaml.ansible

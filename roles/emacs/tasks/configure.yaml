@@ -16,6 +16,8 @@
   loop:
     - path: "{{ doom_d_dir }}"
     - path: "{{ org_dir }}"
+  loop_control:
+    label: "{{ item.path }}"
 
 - name: Copy configuration files
   ansible.builtin.copy:

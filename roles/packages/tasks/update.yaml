@@ -1,5 +1,6 @@
 ---
 
+# Same as `dnf up`
 - name: Update all packages
   when: ansible_distribution == "Fedora"
   become: true
@@ -7,6 +8,7 @@
     name: "*"
     state: latest
 
+# Same as `zypper dup`
 - name: Update all packages
   when: ansible_distribution == "OpenSuse"
   become: true
@@ -14,6 +16,7 @@
     name: "*"
     state: dist-upgrade
 
+# Same as `pacman -Syu`
 - name: Update all packages
   when: ansible_distribution == "ArchLinux"
   become: true

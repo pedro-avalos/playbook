@@ -1,0 +1,7 @@
+---
+
+- name: dnf-clean-metadata
+  become: true
+  ansible.builtin.command: dnf clean metadata
+
+# vim: ft=yaml.ansible

@@ -9,6 +9,8 @@
     - path: "{{ nvim_dir }}"
     - path: "{{ vim_dir }}"
     - path: "{{ vimwiki_dir }}"
+  loop_control:
+    label: "{{ item.path }}"
 
 - name: Copy configuration files
   ansible.builtin.copy:
@@ -30,5 +32,7 @@
       dest: "{{ vim_dir }}/config"
     - src: "{{ nvim_dir }}/coc-settings.json"
       dest: "{{ vim_dir }}/coc-settings.json"
+  loop_control:
+    label: "{{ item.dest }}"
 
 # vim: ft=yaml.ansible

@@ -1,9 +1,5 @@
 ---
 
-flatpak_dependencies:
-  - flatpak
-  - xdg-desktop-portal-gtk
-
 flathub_repo:
   name: flathub
   repo_url: https://flathub.org/repo/flathub.flatpakrepo

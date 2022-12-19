@@ -6,6 +6,8 @@
 
   vars_files:
     - "vars/{{ ansible_facts['distribution'] }}.yaml"
+    - vars/common.yaml
+    - vars/git.yaml
 
   vars_prompt:
     - name: hostname
@@ -13,16 +15,38 @@
 
   roles:
     - role: system
-    - role: repositories
-    - role: packages
-    - role: flatpak
-    - role: dnf
-    - role: git
-    - role: emacs
-    - role: nvim
-    - role: tmux
-    - role: gnome
-    - role: ssh
-    - role: shell
+
+  tasks:
+    - name: Include dnf role
+      when: ansible_facts['distribution'] == "Fedora"
+      include_role:
+        name: dnf
+
+    - name: Include repositories role
+      when: (ansible_facts['distribution'] == "Fedora") or (ansible_facts['distribution'] == "OpenSuse")
+      include_role:
+        name: repositories
+
+    - name: Include pacman role
+      when: ansible_facts['distribution'] == "ArchLinux"
+      include_role:
+        name: pacman
+
+    - name: Include common configuration roles
+      include_role:
+        name: "{{ current_role.name }}"
+      loop:
+        - name: packages
+        - name: flatpak
+        - name: development
+        - name: git
+        - name: emacs
+        - name: nvim
+        - name: tmux
+        - name: gnome
+        - name: ssh
+        - name: shell
+      loop_control:
+        loop_var: current_role
 
 # vim: ft=yaml.ansible

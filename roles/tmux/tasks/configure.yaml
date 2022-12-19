@@ -8,6 +8,8 @@
   loop:
     - path: "{{ tmux_dir }}"
     - path: "{{ tmuxp_dir }}"
+  loop_control:
+    label: "{{ item.path }}"
 
 - name: Copy configuration files
   ansible.builtin.copy:
@@ -16,9 +18,11 @@
     mode: '0600'
     directory_mode: '0700'
   loop:
-    - src: tmux/
+    - src: tmux
       dest: "{{ tmux_dir }}"
-    - src: tmuxp/
+    - src: tmuxp
       dest: "{{ tmuxp_dir }}"
+  loop_control:
+    label: "{{ item.src }}"
 
 # vim: ft=yaml.ansible

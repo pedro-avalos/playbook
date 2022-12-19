@@ -1,0 +1,9 @@
+---
+
+shell_packages:
+  - bash
+  - bash-completion
+  - zsh
+  - fish
+
+# vim: ft=yaml.ansible

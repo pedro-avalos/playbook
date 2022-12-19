@@ -1,0 +1,79 @@
+---
+
+# {{{ Role: emacs
+emacs_packages:
+  - emacs
+  - git
+  - "{{ fd_find }}"
+  - ripgrep
+# }}}
+
+# {{{ Role: neovim
+neovim_packages:
+  - vim
+  - neovim
+  - "{{ tree_sitter }}"
+  - "{{ python_neovim }}"
+  - nodejs
+  - npm
+# }}}
+
+# {{{ Role: packages
+unwanted_packages:
+  - gnome-tour
+# }}}
+
+# {{{ Role: repositories
+misc_repositories:
+  - name: 1password
+    description: 1Password
+    baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
+    skip_if_unavailable: false
+    gpgkey: https://downloads.1password.com/linux/keys/1password.asc
+    key: https://downloads.1password.com/linux/keys/1password.asc
+
+  - name: brave-browser
+    description: Brave Browser Release Channel
+    baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
+    skip_if_unavailable: true
+    gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+  - name: vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    skip_if_unavailable: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+  - name: ms-teams
+    description: Microsoft Teams
+    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
+    skip_if_unavailable: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+unwanted_repositories:
+  - name: teams
+# }}}
+
+# {{{ Role: gnome
+dconf_settings:
+  - key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Adwaita-dark'"
+  - key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+  - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+
+gnome_packages:
+  - gnome-tweaks
+# }}}
+
+# {{{ Role: flatpak
+flatpak_apps:
+  - com.discordapp.Discord
+  - com.spotify.Client
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

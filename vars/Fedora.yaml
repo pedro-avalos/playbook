@@ -1,13 +1,96 @@
 ---
 
-adobe_source_code_pro_fonts: "adobe-source-code-pro-fonts"
-dejavu_fonts: "dejavu-fonts-all"
-fd_find: "fd-find"
-firefox: "firefox"
-libreoffice: "libreoffice"
-libtree_sitter: "libtree-sitter"
-python_nvim: "python-neovim"
-shellcheck: "ShellCheck"
-tmuxp: "python-tmuxp"
+# {{{ Package names
+fd_find: fd-find
+python_neovim: python-neovim
+tree_sitter: libtree-sitter
+# }}}
 
-# vim: ft=yaml.ansible
+# {{{ Role: development
+c_packages:
+  - clang
+  - clang-devel
+
+java_packages:
+  - java-latest-openjdk
+  - java-latest-openjdk-devel
+
+python_packages:
+  - python
+  - python-pip
+  - python-devel
+  - python-flake8
+  - python-black
+  - python-isort
+
+ruby_packages:
+  - ruby
+  - ruby-devel
+# }}}
+
+# {{{ Role: shell
+shell_packages:
+  - ShellCheck
+  - bash
+  - bash-devel
+  - bash-completion
+  - zsh
+  - fish
+  - 1password-cli
+  - htop
+  - bpytop
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
+# }}}
+
+# {{{ Role: tmux
+tmux_packages:
+  - tmux
+  - python-tmuxp
+# }}}
+
+# {{{ Role: packages
+group_packages:
+  - "@core"
+  - "@development tools"
+  - "@c development tools and libraries"
+  - "@rpm development tools"
+  - "@virtualization"
+
+extra_packages:
+  - code
+  - 1password
+  - firefox
+  - brave-browser
+  - steam
+  - libreoffice
+  - texlive-scheme-full
+
+font_packages:
+  - adobe-source-code-pro-fonts
+  - dejavu-fonts-all
+  - gnu-free-fonts-common
+  - gnu-free-mono-fonts
+  - gnu-free-sans-fonts
+  - gnu-free-serif-fonts
+  - levien-inconsolata-fonts
+  - liberation-fonts
+  - fira-code-fonts
+  - mozilla-fira-mono-fonts
+  - mozilla-fira-sans-fonts
+  - msimonson-anonymouspro-fonts
+  - overpass-fonts
+  - terminus-fonts
+  - powerline-fonts
+# }}}
+
+# {{{ Role: repositories
+copr_repositories:
+  - host: copr.fedorainfracloud.org
+    name: yuezk/globalprotect-openconnect
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

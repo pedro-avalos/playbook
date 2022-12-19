@@ -22,6 +22,7 @@
       bash_profile: "{{ root_bash_profile }}"
       bash_logout: "{{ root_bash_logout }}"
   loop_control:
-    loop_var: outer_item
+    loop_var: bash_configuration
+    label: "{{ bash_configuration.owner }}"
 
 # vim: ft=yaml.ansible

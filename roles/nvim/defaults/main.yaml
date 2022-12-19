@@ -1,5 +1,13 @@
 ---
 
+neovim_packages:
+  - vim
+  - neovim
+  - "{{ tree_sitter }}"
+  - "{{ python_neovim }}"
+  - nodejs
+  - npm
+
 vimwiki_dir: "{{ ansible_env.HOME }}/vimwiki"
 
 # vim: ft=yaml.ansible

@@ -1,20 +1,26 @@
 ---
 
-- name: Remove unwanted repos
+- name: Remove unwanted repositories
   when: ansible_distribution == "Fedora"
   become: true
   ansible.builtin.yum_repository:
-    name: "{{ item.name }}"
+    name: "{{ repo.name }}"
     state: absent
-  loop: "{{ unwanted_repos }}"
-  notify: yum-clean-metadata
+  loop: "{{ unwanted_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.name }}"
+  notify: dnf-clean-metadata
 
-- name: Remove unwanted repos
+- name: Remove unwanted repositories
   when: ansible_distribution == "OpenSuse"
   become: true
   community.general.zypper_repository:
-    name: "{{ item.name }}"
+    name: "{{ repo.name }}"
     state: absent
-  loop: "{{ unwanted_repos }}"
+  loop: "{{ unwanted_repositories }}"
+  loop_control:
+    loop_var: repo
+    label: "{{ repo.name }}"
 
 # vim: ft=yaml.ansible

@@ -1,9 +1,9 @@
 ---
 
-- name: Install neovim packages
+- name: Install c packages
   become: true
   ansible.builtin.package:
-    name: "{{ neovim_packages }}"
+    name: "{{ c_packages }}"
     state: present
 
 # vim: ft=yaml.ansible

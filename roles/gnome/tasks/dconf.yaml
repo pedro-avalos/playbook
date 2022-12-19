@@ -2,9 +2,12 @@
 
 - name: Modify dconf settings
   community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value | string }}"
+    key: "{{ dconf_setting.key }}"
+    value: "{{ dconf_setting.value | string }}"
     state: present
   loop: "{{ dconf_settings }}"
+  loop_control:
+    loop_var: dconf_setting
+    label: "{{ dconf_setting.key }}"
 
 # vim: ft=yaml.ansible
