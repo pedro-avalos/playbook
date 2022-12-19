@@ -1,0 +1,5 @@
+---
+
+dnf_conf: "/etc/dnf/dnf.conf"
+
+# vim: ft=yaml.ansible

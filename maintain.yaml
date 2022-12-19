@@ -1,11 +1,10 @@
 ---
 
-- name: Set up Linux post-install
+- name: Maintain Linux installation
   hosts: all
   gather_facts: true
 
   roles:
-    - role: system
     - role: repositories
     - role: packages
     - role: flatpak

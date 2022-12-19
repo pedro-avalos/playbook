@@ -1,0 +1,125 @@
+---
+
+# {{{ group_pkgs
+group_pkgs:
+  - "@core"
+  - "@development tools"
+  - "@c development tools and libraries"
+  - "@rpm development tools"
+  - "@virtualization"
+# }}}
+
+# {{{ extra_pkgs
+extra_pkgs:
+  # {{{ Gnome & GTK
+  - dconf
+  - gnome-tweaks
+  # }}}
+
+  # {{{ GUI Applications
+  - 1password
+  - firefox
+  - brave-browser
+  - steam
+  - libreoffice
+  # }}}
+
+  # {{{ CLI Tools
+  - 1password-cli
+  - htop
+  - bpytop
+  - tmux
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
+  - ripgrep
+  - "{{ fd_find }}"
+  - libtree-sitter
+  # }}}
+
+  # {{{ Shells
+  - ShellCheck
+  - bash
+  - bash-completion
+  - bash-devel
+  - zsh
+  - fish
+  # }}}
+
+  # {{{ Technical Writing
+  - texlive-scheme-full
+  # }}}
+
+  # {{{ Development
+  # {{{ Editors & IDEs
+  - vim
+  - neovim
+  - emacs
+  - code
+  # }}}
+
+  # {{{ C/C++
+  - llvm
+  - clang
+  - clang-devel
+  # }}}
+
+  # {{{ Java
+  - java-latest-openjdk
+  - java-latest-openjdk-devel
+  # }}}
+
+  # {{{ JavaScript
+  - nodejs
+  - nodejs-devel
+  - npm
+  # }}}
+
+  # {{{ Ruby
+  - ruby
+  - ruby-devel
+  # }}}
+
+  # {{{ Python
+  - python
+  - python-devel
+  - python-flake8
+  - python-black
+  - python-isort
+  - python-psutil
+  - python-tmuxp
+  - "{{ python_nvim }}"
+  # }}}
+  # }}}
+# }}}
+
+# {{{ font_pkgs
+font_pkgs:
+  - adobe-source-code-pro-fonts
+  - dejavu-sans-fonts
+  - dejavu-sans-mono-fonts
+  - dejavu-serif-fonts
+  - gnu-free-fonts-common
+  - gnu-free-mono-fonts
+  - gnu-free-sans-fonts
+  - gnu-free-serif-fonts
+  - levien-inconsolata-fonts
+  - liberation-fonts-common
+  - liberation-mono-fonts
+  - liberation-sans-fonts
+  - liberation-serif-fonts
+  - mozilla-fira-mono-fonts
+  - msimonson-anonymouspro-fonts
+  - overpass-fonts
+  - terminus-fonts
+  - powerline-fonts
+# }}}
+
+# {{{ unwanted_pkgs
+unwanted_pkgs:
+  - gnome-tour
+# }}}
+
+# vim: fdm=marker ft=yaml.ansible

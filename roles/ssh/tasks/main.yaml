@@ -1,0 +1,15 @@
+---
+
+- name: Ensure directories exist
+  ansible.builtin.file:
+    path: "{{ ssh_dir }}"
+    mode: '0700'
+    state: directory
+
+- name: Copy configuration files
+  ansible.builtin.copy:
+    src: ssh/config
+    dest: "{{ ssh_config }}"
+    mode: '0600'
+
+# vim: ft=yaml.ansible

@@ -1,0 +1,10 @@
+---
+
+- name: Modify dconf settings
+  community.general.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value | string }}"
+    state: present
+  loop: "{{ dconf_settings }}"
+
+# vim: ft=yaml.ansible

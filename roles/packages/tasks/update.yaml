@@ -1,0 +1,10 @@
+---
+
+- name: Update all packages
+  when: ansible_distribution == "Fedora"
+  become: true
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+
+# vim: ft=yaml.ansible

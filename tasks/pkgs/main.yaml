@@ -1,6 +1,0 @@
----
-
-- import_tasks: helpers/updates.yaml
-- import_tasks: group.yaml
-- import_tasks: extra.yaml
-- import_tasks: fonts.yaml

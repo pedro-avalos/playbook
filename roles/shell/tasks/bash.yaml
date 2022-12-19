@@ -1,0 +1,27 @@
+---
+
+- include_tasks: _bash.yaml
+  loop:
+    # User configuration
+    - become: false
+      owner: "{{ ansible_user_id }}"
+      mode: '0644'
+      directory_mode: '0744'
+      bashrc_d_dir: "{{ bashrc_d_dir }}"
+      bashrc: "{{ bashrc }}"
+      bash_profile: "{{ bash_profile }}"
+      bash_logout: "{{ bash_logout }}"
+
+    # Root configuration
+    - become: true
+      owner: root
+      mode: '0600'
+      directory_mode: '0700'
+      bashrc_d_dir: "{{ root_bashrc_d_dir }}"
+      bashrc: "{{ root_bashrc }}"
+      bash_profile: "{{ root_bash_profile }}"
+      bash_logout: "{{ root_bash_logout }}"
+  loop_control:
+    loop_var: outer_item
+
+# vim: ft=yaml.ansible

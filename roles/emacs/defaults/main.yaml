@@ -1,0 +1,5 @@
+---
+
+org_dir: "{{ ansible_env.HOME }}/org"
+
+# vim: ft=yaml.ansible

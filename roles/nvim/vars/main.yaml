@@ -1,0 +1,7 @@
+---
+
+nvim_dir: "{{ ansible_env.HOME }}/.config/nvim"
+vim_dir: "{{ ansible_env.HOME }}/.vim"
+vimrc: "{{ ansible_env.HOME }}/.vimrc"
+
+# vim: ft=yaml.ansible

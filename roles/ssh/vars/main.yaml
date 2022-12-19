@@ -1,0 +1,6 @@
+---
+
+ssh_dir: "{{ ansible_env.HOME }}/.ssh"
+ssh_config: "{{ ansible_env.HOME }}/.ssh/config"
+
+# vim: ft=yaml.ansible
