@@ -18,10 +18,10 @@ extra_pkgs:
   # {{{ GUI Applications
   - code
   - 1password
-  - firefox
+  - "{{ firefox }}"
   - brave-browser
   - steam
-  - libreoffice
+  - "{{ libreoffice }}"
   # }}}
 
   # {{{ CLI Tools

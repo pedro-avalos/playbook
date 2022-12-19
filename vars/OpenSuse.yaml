@@ -3,6 +3,8 @@
 adobe_source_code_pro_fonts: "adobe-sourcecodepro-fonts"
 dejavu_fonts: "dejavu-fonts"
 fd_find: "fd"
+firefox: "MozillaFirefox"
+libreoffice: "libreoffice"
 libtree_sitter: "tree-sitter"
 python_nvim: "python-neovim"
 shellcheck: "ShellCheck"
