@@ -1,0 +1,16 @@
+---
+
+- name: Install shell packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - "{{ shellcheck }}"
+      - bash
+      - bash-completion
+      - bash-devel
+      - zsh
+      - fish
+    state: present
+    
+
+# vim: ft=yaml.ansible

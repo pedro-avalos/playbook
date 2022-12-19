@@ -1,0 +1,10 @@
+---
+
+- name: Add flathub repository
+  community.general.flatpak_remote:
+    name: "{{ flathub_repo.name }}"
+    flatpakrepo_url: "{{ flathub_repo.repo_url }}"
+    state: present
+    method: user
+
+# vim: ft=yaml.ansible

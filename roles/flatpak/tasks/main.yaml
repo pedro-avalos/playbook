@@ -1,22 +1,7 @@
 ---
 
-- name: Install dependencies
-  become: true
-  ansible.builtin.package:
-    name: "{{ flatpak_dependencies }}"
-    state: present
-
-- name: Add flathub repository
-  community.general.flatpak_remote:
-    name: "{{ flathub_repo.name }}"
-    flatpakrepo_url: "{{ flathub_repo.repo_url }}"
-    state: present
-    method: user
-
-- name: Install flatpak packages
-  community.general.flatpak:
-    name: "{{ flatpak_apps }}"
-    state: present
-    method: user
+- import_tasks: dependencies.yaml
+- import_tasks: flathub.yaml
+- import_tasks: packages.yaml
 
 # vim: ft=yaml.ansible

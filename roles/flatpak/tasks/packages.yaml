@@ -1,0 +1,9 @@
+---
+
+- name: Install flatpak packages
+  community.general.flatpak:
+    name: "{{ flatpak_apps }}"
+    state: present
+    method: user
+
+# vim: ft=yaml.ansible

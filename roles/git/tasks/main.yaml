@@ -1,31 +1,6 @@
 ---
 
-- name: Install git dependencies
-  become: true
-  ansible.builtin.package:
-    name: git
-    state: present
-
-- name: Configure git
-  community.general.git_config:
-    name: "{{ item.name }}"
-    scope: "{{ item.scope }}"
-    value: "{{ item.value }}"
-  loop:
-    - name: user.name
-      scope: global
-      value: "{{ git_username }}"
-    - name: user.email
-      scope: global
-      value: "{{ git_email }}"
-    - name: core.editor
-      scope: global
-      value: "{{ git_editor }}"
-    - name: init.defaultBranch
-      scope: global
-      value: "{{ git_default_branch }}"
-    - name: commit.gpgsign
-      scope: global
-      value: "{{ git_gpgsign }}"
+- import_tasks: dependencies.yaml
+- import_tasks: configure.yaml
 
 # vim: ft=yaml.ansible

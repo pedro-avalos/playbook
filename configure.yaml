@@ -4,6 +4,9 @@
   hosts: all
   gather_facts: true
 
+  vars_files:
+    - "vars/{{ ansible_distribution }}.yaml"
+
   roles:
     - role: dnf
     - role: git

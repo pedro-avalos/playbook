@@ -4,6 +4,13 @@
   hosts: all
   gather_facts: true
 
+  vars_files:
+    - "vars/{{ ansible_distribution }}.yaml"
+
+  vars_prompt:
+    - name: hostname
+      private: false
+
   roles:
     - role: system
     - role: repositories

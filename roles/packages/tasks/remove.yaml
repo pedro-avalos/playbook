@@ -1,9 +1,8 @@
 ---
 
 - name: Remove unwanted packages
-  when: ansible_distribution == "Fedora"
   become: true
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: "{{ unwanted_pkgs }}"
     state: absent
 

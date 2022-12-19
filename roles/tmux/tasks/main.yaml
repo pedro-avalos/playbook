@@ -1,24 +1,6 @@
 ---
 
-- name: Ensure directories exist
-  ansible.builtin.file:
-    path: "{{ item.path }}"
-    mode: '0700'
-    state: directory
-  loop:
-    - path: "{{ tmux_dir }}"
-    - path: "{{ tmuxp_dir }}"
-
-- name: Copy configuration files
-  ansible.builtin.copy:
-    src: "{{ item.src }}/"
-    dest: "{{ item.dest }}/"
-    mode: '0600'
-    directory_mode: '0700'
-  loop:
-    - src: tmux/
-      dest: "{{ tmux_dir }}"
-    - src: tmuxp/
-      dest: "{{ tmuxp_dir }}"
+- import_tasks: packages.yaml
+- import_tasks: configure.yaml
 
 # vim: ft=yaml.ansible

@@ -1,6 +1,0 @@
----
-
-fd_find: fd-find
-python_nvim: python-neovim
-
-# vim: ft=yaml.ansible

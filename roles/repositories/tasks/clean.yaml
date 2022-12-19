@@ -9,4 +9,12 @@
   loop: "{{ unwanted_repos }}"
   notify: yum-clean-metadata
 
+- name: Remove unwanted repos
+  when: ansible_distribution == "OpenSuse"
+  become: true
+  community.general.zypper_repository:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ unwanted_repos }}"
+
 # vim: ft=yaml.ansible

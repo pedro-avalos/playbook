@@ -12,11 +12,11 @@ group_pkgs:
 # {{{ extra_pkgs
 extra_pkgs:
   # {{{ Gnome & GTK
-  - dconf
   - gnome-tweaks
   # }}}
 
   # {{{ GUI Applications
+  - code
   - 1password
   - firefox
   - brave-browser
@@ -28,24 +28,11 @@ extra_pkgs:
   - 1password-cli
   - htop
   - bpytop
-  - tmux
   - fzf
   - gawk
   - bat
   - most
   - sed
-  - ripgrep
-  - "{{ fd_find }}"
-  - libtree-sitter
-  # }}}
-
-  # {{{ Shells
-  - ShellCheck
-  - bash
-  - bash-completion
-  - bash-devel
-  - zsh
-  - fish
   # }}}
 
   # {{{ Technical Writing
@@ -53,13 +40,6 @@ extra_pkgs:
   # }}}
 
   # {{{ Development
-  # {{{ Editors & IDEs
-  - vim
-  - neovim
-  - emacs
-  - code
-  # }}}
-
   # {{{ C/C++
   - llvm
   - clang
@@ -69,12 +49,6 @@ extra_pkgs:
   # {{{ Java
   - java-latest-openjdk
   - java-latest-openjdk-devel
-  # }}}
-
-  # {{{ JavaScript
-  - nodejs
-  - nodejs-devel
-  - npm
   # }}}
 
   # {{{ Ruby
@@ -88,19 +62,14 @@ extra_pkgs:
   - python-flake8
   - python-black
   - python-isort
-  - python-psutil
-  - python-tmuxp
-  - "{{ python_nvim }}"
   # }}}
   # }}}
 # }}}
 
 # {{{ font_pkgs
 font_pkgs:
-  - adobe-source-code-pro-fonts
-  - dejavu-sans-fonts
-  - dejavu-sans-mono-fonts
-  - dejavu-serif-fonts
+  - "{{ adobe_source_code_pro_fonts }}"
+  - "{{ dejavu_fonts }}"
   - gnu-free-fonts-common
   - gnu-free-mono-fonts
   - gnu-free-sans-fonts

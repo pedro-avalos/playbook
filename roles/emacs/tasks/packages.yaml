@@ -1,0 +1,13 @@
+---
+
+- name: Install (doom) emacs packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - emacs
+      - git
+      - "{{ fd_find }}"
+      - ripgrep
+    state: present
+
+# vim: ft=yaml.ansible

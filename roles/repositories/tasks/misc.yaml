@@ -11,6 +11,19 @@
     gpgkey: "{{ item.gpgkey }}"
     gpgcheck: true
     enabled: true
+    state: present
+  loop: "{{ misc_repos }}"
+
+- name: Add miscellaneous repositories
+  when: ansible_distribution == "OpenSuse"
+  become: true
+  community.general.zypper_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    repo: "{{ item.baseurl }}"
+    auto_import_keys: true
+    enabled: true
+    state: present
   loop: "{{ misc_repos }}"
 
 # vim: ft=yaml.ansible

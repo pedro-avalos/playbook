@@ -1,5 +1,6 @@
 ---
 
+- import_tasks: packages.yaml
 - import_tasks: bash.yaml
 
 # vim: ft=yaml.ansible

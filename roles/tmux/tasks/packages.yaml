@@ -1,0 +1,22 @@
+---
+
+- name: Install tmux
+  become: true
+  ansible.builtin.package:
+    name: tmux
+    state: present
+
+- name: Install tmuxp through package manager
+  when: ansible_distribution != "OpenSuse"
+  become: true
+  ansible.builtin.package:
+    name: "{{ tmuxp }}"
+    state: present
+
+- name: Install tmuxp through pip
+  when: ansible_distribution == "OpenSuse"
+  ansible.builtin.pip:
+    name: tmuxp
+    extra_args: --user
+
+# vim: ft=yaml.ansible

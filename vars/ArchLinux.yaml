@@ -1,0 +1,11 @@
+---
+
+adobe_source_code_pro_fonts: "adobe-source-code-pro-fonts"
+dejavu_fonts: "ttf-dejavu"
+fd_find: "fd"
+libtree_sitter: "tree-sitter"
+python_nvim: "python-neovim"
+shellcheck: "shellcheck"
+tmuxp: "tmuxp"
+
+# vim: ft=yaml.ansible

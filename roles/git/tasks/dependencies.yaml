@@ -1,0 +1,9 @@
+---
+
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    name: git
+    state: present
+
+# vim: ft=yaml.ansible

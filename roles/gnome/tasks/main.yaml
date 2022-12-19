@@ -1,10 +1,6 @@
 ---
 
-- name: Modify dconf settings
-  community.general.dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value | string }}"
-    state: present
-  loop: "{{ dconf_settings }}"
+- import_tasks: dependencies.yaml
+- import_tasks: dconf.yaml
 
 # vim: ft=yaml.ansible

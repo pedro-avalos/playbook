@@ -1,0 +1,14 @@
+---
+
+- name: Install neovim packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - neovim
+      - "{{ libtree_sitter }}"
+      - "{{ python_nvim }}"
+      - nodejs
+      - npm
+    state: present
+
+# vim: ft=yaml.ansible

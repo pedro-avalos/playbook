@@ -7,4 +7,18 @@
     name: "*"
     state: latest
 
+- name: Update all packages
+  when: ansible_distribution == "OpenSuse"
+  become: true
+  community.general.zypper:
+    name: "*"
+    state: dist-upgrade
+
+- name: Update all packages
+  when: ansible_distribution == "ArchLinux"
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
 # vim: ft=yaml.ansible

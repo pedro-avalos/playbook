@@ -1,0 +1,9 @@
+---
+
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    name: "{{ flatpak_dependencies }}"
+    state: present
+
+# vim: ft=yaml.ansible
