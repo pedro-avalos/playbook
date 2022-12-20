@@ -1,7 +1,7 @@
 ---
 
 - name: Add rpmfusion repositories
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts['distribution'] == "Fedora"
   become: true
   ansible.builtin.yum_repository:
     name: "{{ repo.name }}"

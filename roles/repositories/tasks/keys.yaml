@@ -1,7 +1,7 @@
 ---
 
 - name: Import rpm keys
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts['distribution'] == "Fedora"
   become: true
   ansible.builtin.rpm_key:
     key: "{{ repo.key }}"

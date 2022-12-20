@@ -1,7 +1,7 @@
 ---
 
 - name: Remove unwanted repositories
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts['distribution'] == "Fedora"
   become: true
   ansible.builtin.yum_repository:
     name: "{{ repo.name }}"
@@ -13,7 +13,7 @@
   notify: dnf-clean-metadata
 
 - name: Remove unwanted repositories
-  when: ansible_distribution == "OpenSuse"
+  when: ansible_facts['distribution'] == "OpenSuse"
   become: true
   community.general.zypper_repository:
     name: "{{ repo.name }}"

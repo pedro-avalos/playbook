@@ -2,7 +2,7 @@
 
 # Same as `dnf up`
 - name: Update all packages
-  when: ansible_distribution == "Fedora"
+  when: ansible_facts['distribution'] == "Fedora"
   become: true
   ansible.builtin.dnf:
     name: "*"
@@ -10,7 +10,7 @@
 
 # Same as `zypper dup`
 - name: Update all packages
-  when: ansible_distribution == "OpenSuse"
+  when: ansible_facts['distribution'] == "OpenSuse"
   become: true
   community.general.zypper:
     name: "*"
@@ -18,7 +18,7 @@
 
 # Same as `pacman -Syu`
 - name: Update all packages
-  when: ansible_distribution == "ArchLinux"
+  when: ansible_facts['distribution'] == "ArchLinux"
   become: true
   community.general.pacman:
     update_cache: true
