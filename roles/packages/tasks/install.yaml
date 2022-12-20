@@ -1,0 +1,9 @@
+---
+
+- name: Install extra and font packages
+  become: true
+  ansible.builtin.package:
+    name: "{{ group_packages + extra_packages + font_packages }}"
+    state: present
+
+# vim: ft=yaml.ansible

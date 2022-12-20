@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure hooks directory exists
-  when: ansible_distribution == "ArchLinux"
+  when: ansible_facts['distribution'] == "ArchLinux"
   become: true
   ansible.builtin.file:
     path: "{{ hooks_dir }}"
@@ -11,7 +11,7 @@
     state: directory
 
 - name: Copy hooks
-  when: ansible_distribution == "ArchLinux"
+  when: ansible_facts['distribution'] == "ArchLinux"
   become: true
   ansible.builtin.copy:
     src: hooks/

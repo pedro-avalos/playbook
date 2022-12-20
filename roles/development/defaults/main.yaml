@@ -1,8 +1,0 @@
----
-
-c_packages: []
-java_packages: []
-python_packages: []
-ruby_packages: []
-
-# vim: ft=yaml.ansible

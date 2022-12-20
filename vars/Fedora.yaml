@@ -6,28 +6,6 @@ python_neovim: python-neovim
 tree_sitter: libtree-sitter
 # }}}
 
-# {{{ Role: development
-c_packages:
-  - clang
-  - clang-devel
-
-java_packages:
-  - java-latest-openjdk
-  - java-latest-openjdk-devel
-
-python_packages:
-  - python
-  - python-pip
-  - python-devel
-  - python-flake8
-  - python-black
-  - python-isort
-
-ruby_packages:
-  - ruby
-  - ruby-devel
-# }}}
-
 # {{{ Role: shell
 shell_packages:
   - ShellCheck
@@ -61,13 +39,27 @@ group_packages:
   - "@virtualization"
 
 extra_packages:
+  - clang
+  - clang-devel
+  - java-latest-openjdk
+  - java-latest-openjdk-devel
+  - python
+  - python-pip
+  - python-devel
+  - python-flake8
+  - python-black
+  - python-isort
+  - ruby
+  - ruby-devel
+
+  - texlive-scheme-full
+
   - code
   - 1password
   - firefox
   - brave-browser
   - steam
   - libreoffice
-  - texlive-scheme-full
 
 font_packages:
   - adobe-source-code-pro-fonts

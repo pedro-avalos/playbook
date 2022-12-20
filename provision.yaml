@@ -38,7 +38,6 @@
       loop:
         - name: packages
         - name: flatpak
-        - name: development
         - name: git
         - name: emacs
         - name: nvim

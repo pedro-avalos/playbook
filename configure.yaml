@@ -25,7 +25,6 @@
         name: "{{ current_role.name }}"
       loop:
         - name: git
-        - name: development
         - name: emacs
         - name: nvim
         - name: tmux

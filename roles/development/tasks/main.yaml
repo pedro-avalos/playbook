@@ -1,8 +1,0 @@
----
-
-- import_tasks: c.yaml
-- import_tasks: python.yaml
-- import_tasks: ruby.yaml
-- import_tasks: java.yaml
-
-# vim: ft=yaml.ansible

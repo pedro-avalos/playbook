@@ -1,9 +1,0 @@
----
-
-- name: Install python packages
-  become: true
-  ansible.builtin.package:
-    name: "{{ python_packages }}"
-    state: present
-
-# vim: ft=yaml.ansible

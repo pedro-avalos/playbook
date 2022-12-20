@@ -1,7 +1,7 @@
 ---
 
 - name: Copy pacman.conf
-  when: ansible_distribution == "ArchLinux"
+  when: ansible_facts['distribution'] == "ArchLinux"
   become: true
   ansible.builtin.copy:
     src: pacman.conf

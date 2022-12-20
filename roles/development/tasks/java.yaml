@@ -1,9 +1,0 @@
----
-
-- name: Install java packages
-  become: true
-  ansible.builtin.package:
-    name: "{{ java_packages }}"
-    state: present
-
-# vim: ft=yaml.ansible

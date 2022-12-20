@@ -1,9 +1,0 @@
----
-
-- name: Install font packages
-  become: true
-  ansible.builtin.package:
-    name: "{{ font_packages }}"
-    state: present
-
-# vim: ft=yaml.ansible

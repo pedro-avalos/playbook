@@ -7,7 +7,7 @@
     state: present
 
 - name: Install tmuxp through pip
-  when: ansible_facts["distribution"] == "OpenSuse"
+  when: ansible_facts['distribution'] == "OpenSuse"
   ansible.builtin.pip:
     name: tmuxp
     extra_args: --user

@@ -6,25 +6,6 @@ python_neovim: python-neovim
 tree_sitter: tree-sitter
 # }}}
 
-# {{{ Role: development
-c_packages:
-  - clang
-
-java_packages:
-  - jdk-openjdk
-  - jre-openjdk
-
-python_packages:
-  - python
-  - python-pip
-  - flake8
-  - python-black
-  - python-isort
-
-ruby_packages:
-  - ruby
-# }}}
-
 # {{{ Role: shell
 shell_packages:
   - shellcheck
@@ -52,10 +33,21 @@ tmux_packages:
 
 # {{{ Role: packages
 extra_packages:
+  - clang
+  - jdk-openjdk
+  - jre-openjdk
+  - python
+  - python-pip
+  - flake8
+  - python-black
+  - python-isort
+  - ruby
+
+  - texlive-most
+
   - firefox
   - steam
   - libreoffice-fresh
-  - texlive-most
 
 font_packages:
   - adobe-source-code-pro-fonts

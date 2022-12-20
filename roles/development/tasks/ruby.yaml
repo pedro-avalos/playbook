@@ -1,9 +1,0 @@
----
-
-- name: Install ruby packages
-  become: true
-  ansible.builtin.package:
-    name: "{{ ruby_packages }}"
-    state: present
-
-# vim: ft=yaml.ansible
