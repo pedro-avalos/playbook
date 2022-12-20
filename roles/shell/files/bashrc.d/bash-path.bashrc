@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # File: bash-path.bashrc
+# Add executable paths to PATH environmental variable.
 
-# {{{ Add local executable paths
+# {{{ Local executable paths
 if [[ -d "${HOME}/bin" ]] ; then
   PATH="${PATH}:${HOME}/bin"
 fi
@@ -11,7 +12,7 @@ if [[ -d "${HOME}/.local/bin" ]] ; then
 fi
 # }}}
 
-# {{{ Add doom emacs executable path
+# {{{ Doom Emacs executable path
 if [[ -d "${HOME}/.emacs.d/bin" ]] ; then
   PATH="${PATH}:${HOME}/.emacs.d/bin"
 fi
