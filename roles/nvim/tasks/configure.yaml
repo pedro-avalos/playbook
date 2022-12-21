@@ -12,27 +12,25 @@
   loop_control:
     label: "{{ item.path }}"
 
-- name: Copy configuration files
+- name: Copy configuration files for nvim
   ansible.builtin.copy:
     src: nvim/
     dest: "{{ nvim_dir }}/"
     mode: '0644'
     directory_mode: '0744'
 
-- name: Symlink configuration files for vim
+- name: Copy configuration files for vim
+  ansible.builtin.copy:
+    src: vim/
+    dest: "{{ vim_dir }}/"
+    mode: '0644'
+    directory_mode: '0744'
+
+- name: Symlink init.vim to vimrc
   ansible.builtin.file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    src: "{{ vim_dir }}/init.vim"
+    dest: "{{ vimrc }}"
     state: link
     force: true
-  loop:
-    - src: "{{ nvim_dir }}/init.vim"
-      dest: "{{ vimrc }}"
-    - src: "{{ nvim_dir }}/config"
-      dest: "{{ vim_dir }}/config"
-    - src: "{{ nvim_dir }}/coc-settings.json"
-      dest: "{{ vim_dir }}/coc-settings.json"
-  loop_control:
-    label: "{{ item.dest }}"
 
 # vim: ft=yaml.ansible
