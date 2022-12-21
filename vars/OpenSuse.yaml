@@ -53,7 +53,9 @@ extra_packages:
   - brave-browser
   - steam
   - libreoffice
+# }}}
 
+# {{{ Role: fonts
 font_packages:
   - adobe-sourcecodepro-fonts
   - dejavu-fonts

@@ -1,9 +1,11 @@
 ---
 
-- name: Install extra and font packages
+- name: Ensure fonts directory exists
   become: true
   ansible.builtin.package:
-    name: "{{ extra_packages }}"
+    name:
+      - fontconfig
+      - git
     state: present
 
 # vim: ft=yaml.ansible

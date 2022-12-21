@@ -1,0 +1,7 @@
+---
+
+- import_tasks: dependencies.yaml
+- import_tasks: packages.yaml
+- import_tasks: nerd.yaml
+
+# vim: ft=yaml.ansible

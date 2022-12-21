@@ -1,0 +1,21 @@
+---
+
+- name: Determine directory name for font family
+  set_fact:
+    font_family_dir: "{{ font | regex_replace('^([^/]+)/.*$', '\\1') }}"
+
+- name: Create {{ font_family_dir }} fonts directory
+  ansible.builtin.file:
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    path: "{{ fonts_dir }}/{{ font_family_dir }}"
+    state: directory
+
+- name: Download {{ font | basename }}
+  ansible.builtin.get_url:
+    url: "{{ nerd_fonts_github }}/{{ font | regex_replace(' ', '%20') }}"
+    dest: "{{ fonts_dir }}/{{ font_family_dir }}/{{ font | basename }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+
+# vim: ft=yaml.ansible

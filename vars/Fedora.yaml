@@ -31,14 +31,13 @@ tmux_packages:
 # }}}
 
 # {{{ Role: packages
-group_packages:
+extra_packages:
   - "@core"
   - "@development tools"
   - "@c development tools and libraries"
   - "@rpm development tools"
   - "@virtualization"
 
-extra_packages:
   - clang
   - clang-devel
   - java-latest-openjdk
@@ -60,7 +59,9 @@ extra_packages:
   - brave-browser
   - steam
   - libreoffice
+# }}}
 
+# {{{ Role: fonts
 font_packages:
   - adobe-source-code-pro-fonts
   - dejavu-fonts-all

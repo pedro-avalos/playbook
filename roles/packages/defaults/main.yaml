@@ -1,8 +1,6 @@
 ---
 
-group_packages: []
 extra_packages: []
-font_packages: []
 unwanted_packages: []
 
 # vim: ft=yaml.ansible

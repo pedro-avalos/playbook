@@ -1,0 +1,6 @@
+---
+
+fonts_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
+nerd_fonts_github: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts
+
+# vim: ft=yaml.ansible

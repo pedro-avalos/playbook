@@ -48,7 +48,9 @@ extra_packages:
   - firefox
   - steam
   - libreoffice-fresh
+# }}}
 
+# {{{ Role: fonts
 font_packages:
   - adobe-source-code-pro-fonts
   - ttf-dejavu

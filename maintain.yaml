@@ -25,16 +25,18 @@
       include_role:
         name: pacman
 
-    - name: Include extra packages role
+    - name: Include packages role
       include_role:
         name: packages
+
+    - name: Include flatpak role
+      include_role:
+        name: flatpak
 
     - name: Include common configuration roles
       include_role:
         name: "{{ current_role.name }}"
       loop:
-        - name: packages
-        - name: flatpak
         - name: git
         - name: emacs
         - name: nvim

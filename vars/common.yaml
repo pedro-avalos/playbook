@@ -23,6 +23,18 @@ unwanted_packages:
   - gnome-tour
 # }}}
 
+# {{{ Role: fonts
+nerd_fonts:
+  - "DroidSansMono/complete/Droid Sans Mono Nerd Font Complete.otf"
+  - "FiraCode/Regular/complete/Fira Code Regular Nerd Font Complete.ttf"
+  - "FiraMono/Regular/complete/Fura Mono Regular Nerd Font Complete.otf"
+  - "Hack/Regular/complete/Hack Regular Nerd Font Complete.ttf"
+  - "Inconsolata/complete/Inconsolata Regular Nerd Font Complete.ttf"
+  - "Noto/Mono/complete/Noto Mono Nerd Font Complete.ttf"
+  - "RobotoMono/Regular/complete/Roboto Mono Nerd Font Complete.ttf"
+  - "SourceCodePro/Regular/complete/Sauce Code Pro Nerd Font Complete.ttf"
+# }}}
+
 # {{{ Role: repositories
 misc_repositories:
   - name: 1password

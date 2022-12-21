@@ -1,0 +1,15 @@
+---
+
+- name: Ensure fonts directory exists
+  ansible.builtin.file:
+    path: "{{ fonts_dir }}"
+    state: directory
+
+- name: Install nerd fonts
+  include_tasks: _nerd.yaml
+  loop: "{{ nerd_fonts }}"
+  loop_control:
+    loop_var: font
+    label: "{{ font | basename }}"
+
+# vim: ft=yaml.ansible
