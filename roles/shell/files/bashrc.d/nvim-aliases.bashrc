@@ -3,6 +3,7 @@
 # Aliases related to neovim and vim.
 
 alias vi='nvim'
+alias vim='nvim'
 alias diff='nvim -d'
 
 # vim: ft=bash
