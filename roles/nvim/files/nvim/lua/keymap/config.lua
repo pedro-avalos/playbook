@@ -51,4 +51,11 @@ imap({
 })
 
 -- commandline remap
-cmap({ '<C-b>', '<Left>', opts(noremap) })
+cmap({
+  {'<C-b>', '<Left>', opts(noremap)},
+  {'<C-f>', '<Right>', opts(noremap)},
+  {'<C-a>', '<Home>', opts(noremap)},
+  {'<C-e>', '<End>', opts(noremap)},
+  {'<C-d>', '<Del>', opts(noremap)},
+  {'<C-h>', '<BS>', opts(noremap)},
+})

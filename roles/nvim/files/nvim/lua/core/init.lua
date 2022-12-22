@@ -5,16 +5,16 @@
 
 local vim = vim
 local home = os.getenv('HOME')
-local cache_dir = home .. '/.cache/nvim/'
+local cache_dir = require('core.helper').get_cache_path()
 
 -- Create cache dir and subs dir
 local createdir = function()
   local data_dir = {
-    cache_dir .. 'backup',
-    cache_dir .. 'session',
-    cache_dir .. 'swap',
-    cache_dir .. 'tags',
-    cache_dir .. 'undo',
+    cache_dir .. '/backup',
+    cache_dir .. '/session',
+    cache_dir .. '/swap',
+    cache_dir .. '/tags',
+    cache_dir .. '/undo',
   }
 
   if vim.fn.isdirectory(cache_dir) == 0 then

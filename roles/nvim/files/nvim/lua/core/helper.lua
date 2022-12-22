@@ -22,7 +22,7 @@ end
 function helper.get_cache_path()
   local cache = os.getenv('XDG_CACHE_DIR')
   if not cache then
-    return home .. '/.cache/nvim/'
+    return home .. '/.cache/nvim'
   end
 end
 

@@ -15,15 +15,22 @@ plugin({
 })
 
 plugin({
+  'akinsho/bufferline.nvim',
+  tag = 'v3.*',
+  config = conf.bufferline,
+  requires = 'nvim-tree/nvim-web-devicons',
+})
+
+plugin({
   'nvim-tree/nvim-tree.lua',
   config = conf.nvim_tree,
   requires = { 'nvim-tree/nvim-web-devicons' },
 })
 
 plugin({
-  'startup-nvim/startup.nvim',
-  config = conf.startup,
-  requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  'glepnir/dashboard-nvim',
+  config = conf.dashboard,
+  requires = { 'nvim-telescope/telescope.nvim' },
 })
 
 plugin({
