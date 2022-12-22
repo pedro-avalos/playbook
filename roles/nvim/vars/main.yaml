@@ -3,5 +3,6 @@
 nvim_dir: "{{ ansible_env.HOME }}/.config/nvim"
 vim_dir: "{{ ansible_env.HOME }}/.vim"
 vimrc: "{{ ansible_env.HOME }}/.vimrc"
+packer_dir: "{{ ansible_env.HOME }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
 # vim: ft=yaml.ansible

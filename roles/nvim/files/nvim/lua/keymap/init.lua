@@ -1,22 +1,24 @@
-local api = vim.api
-require('keymap.remap')
-local keymap = require('core.keymap')
-local nmap, imap, xmap, tmap = keymap.nmap, keymap.imap, keymap.xmap, keymap.tmap
-local expr, remap = keymap.expr, keymap.remap
-local opts = keymap.new_opts
-local cmd = keymap.cmd
+-- File: init.lua
+-- Author: glepnr https://github.com/glepnir
+-- Date: 2022-07-02
+-- License: MIT
+
+require('keymap.config')
+local key = require('core.keymap')
+local nmap = key.nmap
+local silent, noremap = key.silent, key.noremap
+local opts = key.new_opts
+local cmd = key.cmd
 
 nmap({
   -- packer
-  { '<Leader>pu', cmd('PackerUpdate') },
-  { '<Leader>pi', cmd('PackerInstall') },
-  { '<Leader>pc', cmd('PackerCompile') },
+  { '<Leader>pu', cmd('PackerUpdate'), opts(noremap, silent) },
+  { '<Leader>pi', cmd('PackerInstall'), opts(noremap, silent) },
+  { '<Leader>pc', cmd('PackerCompile'), opts(noremap, silent) },
   -- telescope
-  { '<Leader>j', cmd('Telescope buffers') },
-  { '<Leader>fa', cmd('Telescope live_grep') },
-  { '<Leader>fs', cmd('Telescope grep_string') },
+  { '<Leader>j', cmd('Telescope buffers'), opts(noremap, silent) },
+  { '<Leader>fa', cmd('Telescope live_grep'), opts(noremap, silent) },
+  { '<Leader>fs', cmd('Telescope grep_string'), opts(noremap, silent) },
   -- nvim-tree
-  { '<Leader>tt', cmd('NvimTreeToggle') },
-  { '<Leader>to', cmd('NvimTreeOpen') },
-  { '<Leader>tc', cmd('NvimTreeClose') },
+  { '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) },
 })

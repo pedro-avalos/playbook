@@ -1,6 +1,7 @@
 ---
 
 neovim_packages:
+  - git
   - vim
   - neovim
   - "{{ tree_sitter }}"
