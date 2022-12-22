@@ -2,8 +2,6 @@
 
 # {{{ Package names
 fd_find: fd
-firefox: MozillaFirefox
-java_jdk: java-openjdk
 python_neovim: python3-neovim
 tree_sitter: tree-sitter
 # }}}
@@ -42,7 +40,7 @@ extra_packages:
 
   - code
   - 1password
-  - firefox
+  - MozillaFirefox
   - brave-browser
   - steam
   - libreoffice
