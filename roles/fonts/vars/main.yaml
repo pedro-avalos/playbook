@@ -1,6 +1,10 @@
 ---
 
+# Where fonts should be installed to manually.
+# Defaults to user installation.
 fonts_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
+
+# Path to raw github link for patched nerd fonts.
 nerd_fonts_github: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts
 
 # vim: ft=yaml.ansible

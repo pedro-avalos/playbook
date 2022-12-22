@@ -8,16 +8,6 @@ emacs_packages:
   - ripgrep
 # }}}
 
-# {{{ Role: neovim
-neovim_packages:
-  - vim
-  - neovim
-  - "{{ tree_sitter }}"
-  - "{{ python_neovim }}"
-  - nodejs
-  - npm
-# }}}
-
 # {{{ Role: packages
 unwanted_packages:
   - gnome-tour
@@ -77,9 +67,6 @@ dconf_settings:
     value: "'prefer-dark'"
   - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
     value: "true"
-
-gnome_packages:
-  - gnome-tweaks
 # }}}
 
 # {{{ Role: flatpak

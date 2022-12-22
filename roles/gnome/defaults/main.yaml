@@ -1,6 +1,7 @@
 ---
 
 dconf_settings: []
-gnome_packages: []
+gnome_packages:
+  - gnome-tweaks
 
 # vim: ft=yaml.ansible

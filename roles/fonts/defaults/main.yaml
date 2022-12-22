@@ -1,7 +1,10 @@
 ---
 
+# Package names for fonts available as packages in repositories.
 font_packages: []
 
+# Partial nerd font paths in git repo.
+# Example: "Noto/Mono/complete/Noto Mono Nerd Font Complete.ttf"
 nerd_fonts: []
 
 # vim: ft=yaml.ansible

@@ -6,22 +6,6 @@ python_neovim: python-neovim
 tree_sitter: tree-sitter
 # }}}
 
-# {{{ Role: shell
-shell_packages:
-  - shellcheck
-  - bash
-  - bash-completion
-  - zsh
-  - fish
-  - htop
-  - bpytop
-  - fzf
-  - gawk
-  - bat
-  - most
-  - sed
-# }}}
-
 # {{{ Role: tmux
 tmux_packages:
   - tmux
@@ -42,6 +26,15 @@ extra_packages:
   - python-black
   - python-isort
   - ruby
+
+  - shellcheck
+  - htop
+  - bpytop
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
 
   - texlive-most
 

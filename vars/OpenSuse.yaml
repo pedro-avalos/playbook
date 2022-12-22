@@ -8,23 +8,6 @@ python_neovim: python3-neovim
 tree_sitter: tree-sitter
 # }}}
 
-# {{{ Role: shell
-shell_packages:
-  - ShellCheck
-  - bash
-  - bash-devel
-  - bash-completion
-  - zsh
-  - fish
-  - 1password-cli
-  - htop
-  - fzf
-  - gawk
-  - bat
-  - most
-  - sed
-# }}}
-
 # {{{ Role: tmux
 tmux_packages:
   - tmux
@@ -44,6 +27,16 @@ extra_packages:
   - python3-isort
   - ruby
   - ruby-devel
+
+  - bash-devel
+  - ShellCheck
+  - 1password-cli
+  - htop
+  - fzf
+  - gawk
+  - bat
+  - most
+  - sed
 
   - texlive-scheme-full
 
