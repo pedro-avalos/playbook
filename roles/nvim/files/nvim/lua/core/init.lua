@@ -29,7 +29,7 @@ end
 
 createdir()
 
---disable_distribution_plugins
+-- Disable distribution plugins
 vim.g.loaded_gzip = 1
 vim.g.loaded_tar = 1
 vim.g.loaded_tarPlugin = 1
