@@ -9,7 +9,7 @@
   ansible.builtin.git:
     repo: https://github.com/pavalos6401/nvim.git
     dest: "{{ vim_dir }}"
-    version: legacy
+    version: vimscript
 
 - name: Symlink init.vim to vimrc
   ansible.builtin.file:
