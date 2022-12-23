@@ -29,7 +29,6 @@
         - name: nvim
         - name: tmux
         - name: gnome
-        - name: ssh
         - name: shell
       loop_control:
         loop_var: current_role
