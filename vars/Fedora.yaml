@@ -4,12 +4,19 @@
 fd_find: fd-find
 python_neovim: python-neovim
 tree_sitter: libtree-sitter
+python: python
+pip: python-pip
 # }}}
 
 # {{{ Role: tmux
 tmux_packages:
   - tmux
   - python-tmuxp
+# }}}
+
+# {{{ Role: pip
+pip_packages:
+  - pyright
 # }}}
 
 # {{{ Role: packages

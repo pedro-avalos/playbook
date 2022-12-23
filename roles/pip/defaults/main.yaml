@@ -1,0 +1,8 @@
+---
+
+pip_packages: []
+pip_dependencies:
+  - python
+  - python-pip
+
+# vim: ft=yaml.ansible

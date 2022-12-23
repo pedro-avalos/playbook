@@ -1,0 +1,13 @@
+---
+
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    name: "{{ pip_dependencies }}"
+    state: present
+
+- name: Install pip packages
+  ansible.builtin.pip:
+    name: "{{ pip_packages }}"
+
+# vim: ft=yaml.ansible

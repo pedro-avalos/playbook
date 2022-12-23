@@ -1,0 +1,22 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: Pedro Avalos
+  description: Install pip packages
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: OpenSuse
+      versions:
+        - all
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags: []
+
+# vim: ft=yaml.ansible

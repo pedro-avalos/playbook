@@ -4,6 +4,8 @@
 fd_find: fd
 python_neovim: python-neovim
 tree_sitter: tree-sitter
+python: python
+pip: python-pip
 # }}}
 
 # {{{ Role: tmux

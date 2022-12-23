@@ -29,6 +29,10 @@
       include_role:
         name: packages
 
+    - name: Include pip role
+      include_role:
+        name: pip
+
     - name: Include flatpak role
       include_role:
         name: flatpak
