@@ -6,8 +6,8 @@
     dest: "{{ nvim_dir }}"
 
 - name: Clone pavalos6401/nvim repo (legacy) for vim
-  ansible.builtin.copy:
-    src: https://github.com/pavalos6401/nvim.git
+  ansible.builtin.git:
+    repo: https://github.com/pavalos6401/nvim.git
     dest: "{{ vim_dir }}"
     version: legacy
 
