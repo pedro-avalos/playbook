@@ -3,7 +3,7 @@
 local config = {}
 
 function config.nvim_lsp()
-  -- nothing to do here
+  require('modules.completion.lspconfig')
 end
 
 function config.nvim_cmp()
@@ -14,6 +14,24 @@ function config.nvim_cmp()
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
+    },
+    formatting = {
+      fields = { 'abbr', 'kind', 'menu' },
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-e>'] = cmp.config.disable,
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    }),
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      { name = 'path' },
+      { name = 'buffer' },
     },
   })
 end

@@ -3,19 +3,20 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.completion.config')
 
+-- use filetype to lazyload lsp
+local enable_lsp_filetypes = {
+  'sh',
+  'c',
+  'cpp',
+  'python',
+  'java',
+  'latex',
+  'json',
+}
+
 plugin({
   'neovim/nvim-lspconfig',
-  -- use filetype to lazyload lsp
-  ft = {
-    'lua',
-    'c',
-    'cpp',
-    'java',
-    'py',
-    'rust',
-    'tex',
-    'sh',
-  },
+  ft = enable_lsp_filetypes,
   config = conf.nvim_lsp,
 })
 

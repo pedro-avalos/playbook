@@ -34,6 +34,7 @@ extra_packages:
   - ruby-devel
 
   - bash-devel
+  - nodejs-bash-language-server
   - ShellCheck
   - 1password-cli
   - htop
