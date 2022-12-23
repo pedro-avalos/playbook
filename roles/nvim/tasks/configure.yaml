@@ -1,36 +1,20 @@
 ---
 
-- name: Ensure directories exist
-  ansible.builtin.file:
-    path: "{{ item.path }}"
-    mode: '0744'
-    state: directory
-  loop:
-    - path: "{{ nvim_dir }}"
-    - path: "{{ vim_dir }}"
-    - path: "{{ vimwiki_dir }}"
-  loop_control:
-    label: "{{ item.path }}"
+- name: Clone pavalos6401/nvim repo for neovim
+  ansible.builtin.git:
+    repo: https://github.com/pavalos6401/nvim.git
+    dest: "{{ nvim_dir }}"
 
-- name: Copy configuration files for nvim
+- name: Clone pavalos6401/nvim repo (legacy) for vim
   ansible.builtin.copy:
-    src: nvim/
-    dest: "{{ nvim_dir }}/"
-    mode: '0644'
-    directory_mode: '0744'
-
-- name: Copy configuration files for vim
-  ansible.builtin.copy:
-    src: vim/
-    dest: "{{ vim_dir }}/"
-    mode: '0644'
-    directory_mode: '0744'
+    src: https://github.com/pavalos6401/nvim.git
+    dest: "{{ vim_dir }}"
+    version: legacy
 
 - name: Symlink init.vim to vimrc
   ansible.builtin.file:
     src: "{{ vim_dir }}/init.vim"
     dest: "{{ vimrc }}"
     state: link
-    force: true
 
 # vim: ft=yaml.ansible
