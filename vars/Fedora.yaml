@@ -29,6 +29,8 @@ extra_packages:
 
   - clang
   - clang-devel
+  - java
+  - java-devel
   - java-latest-openjdk
   - java-latest-openjdk-devel
   - python
