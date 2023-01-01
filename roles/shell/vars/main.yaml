@@ -1,8 +1,5 @@
 ---
 
-git_prompt_sh: /usr/share/git-core/contrib/completion/git-prompt.sh
-vte_sh: /etc/profile.d/vte.sh
-
 root_bashrc: /root/.bashrc
 root_bash_profile: /root/.bash_profile
 root_bash_logout: /root/.bash_logout

@@ -2,7 +2,7 @@
 # File: .bashrc
 
 # Source global definitions
-if [[ -f /etc/bashrc ]] ; then
+if [[ -e /etc/bashrc ]] ; then
   source /etc/bashrc
 fi
 
@@ -10,23 +10,17 @@ export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 
-export SUDO_EDITOR=nvim
-export VISUAL=nvim
-export EDITOR=nvim
-export PAGER=less
-export BAT_THEME=TwoDark
-export MANROFFOPT="-c"
-export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=gruvbox-dark'" # Color bug with TwoDark
-
+# If not running interactively, don't do anything
 if [[ $- != *i* ]] ; then
-  return # Non-interactive shell
+  return
 fi
 
 # Source external configuration files
-if [[ -e /usr/share/bash-completion/bash_completion  ]] ; then
+if [[ -e /usr/share/bash-completion/bash_completion ]] ; then
   source /usr/share/bash-completion/bash_completion
 fi
 
+# Change some shell settings
 shopt -s autocd       # When given just a path/directory, cd into it
 shopt -s checkwinsize # Check window size after each command
 

@@ -5,16 +5,12 @@
     repo: https://github.com/pavalos6401/nvim.git
     dest: "{{ nvim_dir }}"
 
-- name: Clone pavalos6401/nvim repo (legacy) for vim
+- name: Clone pavalos6401/nvim repo (branch=vimscript) for vim
   ansible.builtin.git:
     repo: https://github.com/pavalos6401/nvim.git
     dest: "{{ vim_dir }}"
     version: vimscript
-
-- name: Symlink init.vim to vimrc
-  ansible.builtin.file:
-    src: "{{ vim_dir }}/init.vim"
-    dest: "{{ vimrc }}"
-    state: link
+  notify:
+    - Symlink vimrc
 
 # vim: ft=yaml.ansible

@@ -30,18 +30,4 @@
   loop_control:
     label: "{{ item.src }}"
 
-- name: Symlink helper files
-  become: "{{ bash_configuration.become }}"
-  ansible.builtin.file:
-    src: "{{ item.src }}"
-    dest: "{{ bash_configuration.bashrc_d_dir }}/{{ item.name }}"
-    state: link
-  loop:
-    - src: "{{ git_prompt_sh }}"
-      name: "git-prompt.sh"
-    - src: "{{ vte_sh }}"
-      name: "vte.sh"
-  loop_control:
-    label: "{{ item.name }}"
-
 # vim: ft=yaml.ansible

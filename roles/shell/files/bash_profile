@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # File: .bash_profile
 
-if [[ -f ~/.bashrc ]] ; then
+if [[ -e ~/.bashrc ]] ; then
   source ~/.bashrc
 fi
 

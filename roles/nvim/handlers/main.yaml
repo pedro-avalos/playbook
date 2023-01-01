@@ -1,0 +1,9 @@
+---
+
+- name: Symlink vimrc
+  ansible.builtin.file:
+    src: "{{ vim_dir }}/init.vim"
+    dest: "{{ vimrc }}"
+    state: link
+
+# vim: ft=yaml.ansible
