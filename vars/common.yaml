@@ -73,6 +73,7 @@ dconf_settings:
 flatpak_apps:
   - com.discordapp.Discord
   - com.spotify.Client
+  - com.usebottles.bottles
 # }}}
 
 # vim: fdm=marker ft=yaml.ansible
