@@ -30,7 +30,6 @@ extra_packages:
 
   - bash-devel
   - ShellCheck
-  - 1password-cli
   - htop
   - fzf
   - gawk
@@ -41,7 +40,6 @@ extra_packages:
   - texlive-scheme-full
 
   - code
-  - 1password
   - MozillaFirefox
   - brave-browser
   - steam

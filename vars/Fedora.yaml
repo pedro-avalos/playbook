@@ -31,8 +31,6 @@ extra_packages:
   - clang-devel
   - java
   - java-devel
-  - java-latest-openjdk
-  - java-latest-openjdk-devel
   - python
   - python-pip
   - python-devel
@@ -45,7 +43,6 @@ extra_packages:
   - bash-devel
   - nodejs-bash-language-server
   - ShellCheck
-  - 1password-cli
   - htop
   - bpytop
   - fzf
@@ -57,7 +54,6 @@ extra_packages:
   - texlive-scheme-full
 
   - code
-  - 1password
   - firefox
   - brave-browser
   - steam

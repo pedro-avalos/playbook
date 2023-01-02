@@ -27,13 +27,6 @@ nerd_fonts:
 
 # {{{ Role: repositories
 misc_repositories:
-  - name: 1password
-    description: 1Password
-    baseurl: https://downloads.1password.com/linux/rpm/stable/$basearch
-    skip_if_unavailable: false
-    gpgkey: https://downloads.1password.com/linux/keys/1password.asc
-    key: https://downloads.1password.com/linux/keys/1password.asc
-
   - name: brave-browser
     description: Brave Browser Release Channel
     baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
@@ -74,6 +67,7 @@ flatpak_apps:
   - com.discordapp.Discord
   - com.spotify.Client
   - com.usebottles.bottles
+  - com.bitwarden.desktop
 # }}}
 
 # vim: fdm=marker ft=yaml.ansible
